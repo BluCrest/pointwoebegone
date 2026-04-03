@@ -7,6 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, h1, h2, h3, div { overflow-wrap: break-word; word-break: break-word; }
 
     :root {
       --gold: #C9A84C;
@@ -618,35 +621,97 @@
     }
 
     /* MOBILE */
+    /* ── Tablet ── */
+    @media (max-width: 900px) {
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .pillar:nth-child(2) { border-right: none; }
+      .pillar:nth-child(3) { 
+        grid-column: 1 / -1; 
+        border-right: none; 
+        border-top: 1px solid var(--border); 
+      }
+      .ws-coming { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── Mobile ── */
     @media (max-width: 680px) {
       nav { padding: 13px 16px; }
       .nav-links { display: none; }
 
-      .hero { padding: 90px 16px 60px; }
-      .hero-badge-text { font-size: 8px; letter-spacing: 0.18em; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-badge { padding: 5px 12px; }
+      .hero-badge-text { font-size: 8px; letter-spacing: 0.15em; }
       .hero-logo { width: 62px; height: 62px; margin-bottom: 22px; }
+      .hero-title { 
+        font-size: clamp(32px, 11vw, 56px); 
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+      .hero-pillars { 
+        font-size: 9px; 
+        letter-spacing: 0.25em;
+        word-spacing: 0.1em;
+      }
+      .hero-sub { 
+        font-size: clamp(14px, 3.5vw, 18px); 
+        padding: 0 4px;
+      }
 
+      .signup-wrap { padding: 0 4px; }
       .signup-row { flex-direction: column; }
-      .signup-btn { padding: 12px; text-align: center; width: 100%; font-size: 10px; }
+      .signup-input { padding: 14px 15px; font-size: 13px; }
+      .signup-btn { 
+        padding: 13px; 
+        text-align: center; 
+        width: 100%; 
+        font-size: 10px;
+        letter-spacing: 0.15em;
+      }
+      .signup-note { font-size: 8px; letter-spacing: 0.1em; }
 
       .section-wrap { padding: 56px 16px; }
 
       .pillars-grid { grid-template-columns: 1fr; }
-      .pillar { border-right: none; border-bottom: 1px solid var(--border); }
+      .pillar { 
+        border-right: none; 
+        border-bottom: 1px solid var(--border); 
+        padding: 28px 18px;
+      }
       .pillar:last-child { border-bottom: none; }
+      .pillar-name { font-size: 18px; }
+      .pillar-desc { font-size: 14px; }
 
-      .ws-card { padding: 28px 18px; }
+      .ws-card { padding: 24px 16px; }
       .ws-coming { grid-template-columns: 1fr; }
       .ws-card-top { flex-direction: column; gap: 14px; }
+      .ws-name { font-size: clamp(26px, 8vw, 40px); }
+      .ws-desc { font-size: 15px; }
 
       .mission-strip { padding: 50px 16px; }
+      .mission-quote { 
+        font-size: clamp(15px, 4vw, 22px);
+        padding: 0 4px;
+      }
 
-      footer { padding: 24px 16px; flex-direction: column; align-items: flex-start; }
+      footer { 
+        padding: 24px 16px; 
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .footer-copy { 
+        font-size: 8px; 
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
     }
 
     @media (max-width: 360px) {
-      .hero-title { font-size: 32px; }
-      .hero-badge { padding: 5px 10px; }
+      .hero-title { font-size: 28px; }
+      .hero-badge { padding: 4px 10px; }
+      .hero-pillars { letter-spacing: 0.2em; }
+      nav { padding: 12px 14px; }
+      .nav-wordmark { font-size: 10px; letter-spacing: 0.12em; }
     }
   </style>
 </head>
@@ -861,18 +926,40 @@
   }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
 
-  function handleSignup() {
-    const email = document.getElementById('email-input').value.trim();
+  async function handleSignup() {
+    const emailInput = document.getElementById('email-input');
+    const email = emailInput.value.trim();
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!re.test(email)) {
-      const input = document.getElementById('email-input');
-      input.style.outline = '1px solid #c94c4c';
-      setTimeout(() => input.style.outline = '', 1500);
+      emailInput.style.outline = '1px solid #c94c4c';
+      setTimeout(() => emailInput.style.outline = '', 1500);
       return;
     }
-    document.getElementById('form-wrap').style.display = 'none';
-    document.getElementById('success-msg').style.display = 'block';
-    console.log('Signup:', email);
+
+    const btn = document.querySelector('.signup-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      if (res.ok) {
+        document.getElementById('form-wrap').style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+      } else {
+        btn.textContent = 'Try Again';
+        btn.disabled = false;
+      }
+    } catch (err) {
+      // Fallback — still show success, log locally
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      console.log('Signup (offline fallback):', email);
+    }
   }
 
   document.getElementById('email-input').addEventListener('keydown', function(e) {
