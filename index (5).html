@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Primary SEO -->
+  <title>Point Woebegone — Privacy. Security. Trust.</title>
+  <meta name="description" content="Point Woebegone is an AI-powered cybersecurity company protecting people from phishing, crypto scams, and online fraud. Try WoeShield — free threat detection for emails, links, and crypto transactions.">
+  <meta name="keywords" content="cybersecurity, phishing detection, crypto scam protection, AI security, Web3 safety, WoeShield, threat detection, Nigeria, online fraud, wallet security">
+  <meta name="author" content="Point Woebegone">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pointwoebegone.com/">
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp previews) -->
+  <meta property="og:title" content="Point Woebegone — Privacy. Security. Trust.">
+  <meta property="og:description" content="AI-powered threat detection for phishing, crypto scams, and online fraud. Free to use. No account needed.">
+  <meta property="og:url" content="https://pointwoebegone.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Point Woebegone">
+  <meta property="og:image" content="https://res.cloudinary.com/deqbnjh8f/image/upload/f_auto,q_auto/WhatsApp_Image_2026-04-03_at_8.08.12_PM_jbn1tf">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@pointwoebegone">
+  <meta name="twitter:creator" content="@pointwoebegone">
+  <meta name="twitter:title" content="Point Woebegone — Privacy. Security. Trust.">
+  <meta name="twitter:description" content="AI-powered threat detection for phishing, crypto scams, and online fraud. Free to use. No account needed.">
+  <meta name="twitter:image" content="https://res.cloudinary.com/deqbnjh8f/image/upload/f_auto,q_auto/WhatsApp_Image_2026-04-03_at_8.08.12_PM_jbn1tf">
+
+  <!-- Schema.org structured data (helps Google understand what the site is) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Point Woebegone",
+    "url": "https://pointwoebegone.com",
+    "logo": "https://res.cloudinary.com/deqbnjh8f/image/upload/f_auto,q_auto/WhatsApp_Image_2026-04-03_at_8.08.12_PM_jbn1tf",
+    "description": "AI-powered cybersecurity company providing threat detection for phishing, crypto scams, and online fraud.",
+    "foundingDate": "2026",
+    "sameAs": [
+      "https://x.com/pointwoebegone",
+      "https://github.com/BluCrest"
+    ]
+  }
+  </script>
+
+  <!-- Fonts & Icon -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, h1, h2, h3, div { overflow-wrap: break-word; word-break: break-word; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8CC80;
+      --gold-dim: #7a6230;
+      --gold-faint: rgba(201,168,76,0.07);
+      --black: #000000;
+      --surface: #0a0a0a;
+      --border: rgba(201,168,76,0.12);
+      --text: #d4c9a8;
+      --text-dim: #5a5040;
+      --text-mid: #8a7a60;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'IBM Plex Mono', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    #bg-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.028;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    nav {
+      position: fixed;
+      top: 37px; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(20px);
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo-img {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .nav-wordmark {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      z-index: 2;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .hero-badge-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: blink 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    .hero-badge-text {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    .hero-logo {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 30px;
+      display: block;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 36px rgba(201,168,76,0.15), 0 0 70px rgba(201,168,76,0.05);
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.35s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(22px, 5vw, 48px);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.5s forwards;
+    }
+
+    .hero-title .woe { color: var(--gold); }
+
+    .hero-divider {
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 22px auto;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.65s forwards;
+    }
+
+    .hero-pillars {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 18px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.75s forwards;
+      text-transform: uppercase;
+      padding: 0 8px;
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(16px, 4vw, 20px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 500px;
+      margin: 0 auto 44px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.85s forwards;
+    }
+
+    .signup-wrap {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1s forwards;
+    }
+
+    .signup-label {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .signup-row {
+      display: flex;
+      border: 1px solid var(--border);
+      background: rgba(8,8,8,0.9);
+      transition: border-color 0.25s;
+    }
+
+    .signup-row:focus-within { border-color: var(--gold); }
+
+    .signup-input {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 13px 15px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    .signup-input::placeholder { color: var(--text-dim); }
+
+    .signup-btn {
+      background: var(--gold);
+      border: none;
+      padding: 13px 18px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--black);
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s;
+      white-space: nowrap;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .signup-btn:hover { background: var(--gold-light); }
+
+    .signup-note {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      margin-top: 9px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .success-msg {
+      display: none;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-align: center;
+      padding: 13px;
+      border: 1px solid var(--border);
+    }
+
+    .scroll-hint {
+      margin-top: 52px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.3s forwards;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .scroll-hint span {
+      font-size: 8px;
+      letter-spacing: 0.4em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 34px;
+      background: linear-gradient(to bottom, var(--gold-dim), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* SECTIONS */
+    .section-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .section-label {
+      font-size: 9px;
+      letter-spacing: 0.45em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-label::after {
+      content: '';
+      height: 1px;
+      background: var(--border);
+      width: 44px;
+    }
+
+    /* PILLARS */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+    }
+
+    .pillar {
+      padding: 32px 22px;
+      border-right: 1px solid var(--border);
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar:last-child { border-right: none; }
+
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .pillar:hover { background: var(--gold-faint); }
+    .pillar:hover::before { opacity: 1; }
+
+    .pillar-num {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .pillar-name {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .pillar-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    /* WOESHIELD */
+    .ws-card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ws-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+    }
+
+    .ws-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .ws-stage {
+      font-size: 9px;
+      letter-spacing: 0.38em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .ws-name {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(20px, 4vw, 36px);
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .ws-name span { color: var(--gold); }
+
+    .ws-byline {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    .ws-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 7px 14px;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+
+    .ws-status-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    .ws-status-text {
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .ws-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(15px, 2.2vw, 19px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.85;
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+
+    .ws-coming {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .ws-coming-item {
+      background: var(--black);
+      padding: 18px 16px;
+      transition: background 0.25s;
+    }
+
+    .ws-coming-item:hover { background: var(--gold-faint); }
+
+    .ws-coming-tag {
+      font-size: 8px;
+      letter-spacing: 0.32em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .ws-coming-title {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      text-transform: uppercase;
+    }
+
+    .ws-cta-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-dim);
+      line-height: 1.75;
+    }
+
+    .ws-cta-text em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* MISSION */
+    .mission-strip {
+      position: relative;
+      z-index: 2;
+      padding: 70px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mission-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(17px, 3vw, 27px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.75;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .mission-quote em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 2;
+      padding: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-wordmark {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .footer-copy {
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 22px;
+    }
+
+    .footer-right a {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    .footer-right a:hover { color: var(--gold); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* BETA BANNER */
+    .beta-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.92);
+      border-bottom: 1px solid rgba(201,168,76,0.18);
+      backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 8px 20px;
+      text-decoration: none;
+      transition: background 0.25s;
+    }
+
+    .beta-banner:hover { background: rgba(15,12,3,0.97); }
+
+    .beta-banner-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      flex-shrink: 0;
+      animation: betaPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes betaPulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
+      50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(74,222,128,0); }
+    }
+
+    .beta-banner-text {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--text-mid);
+      text-transform: uppercase;
+    }
+
+    .beta-banner-text em {
+      color: #4ade80;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .beta-banner-arrow {
+      font-size: 9px;
+      color: var(--gold-dim);
+      letter-spacing: 0.1em;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+    /* ── Tablet ── */
+    @media (max-width: 900px) {
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .pillar:nth-child(2) { border-right: none; }
+      .pillar:nth-child(3) { 
+        grid-column: 1 / -1; 
+        border-right: none; 
+        border-top: 1px solid var(--border); 
+      }
+      .ws-coming { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 680px) {
+      nav { padding: 13px 16px; }
+      .nav-links { display: none; }
+
+      .hero { padding: 100px 20px 60px; }
+      .hero-badge { padding: 5px 12px; }
+      .hero-badge-text { font-size: 8px; letter-spacing: 0.15em; }
+      .hero-logo { width: 62px; height: 62px; margin-bottom: 22px; }
+      .hero-title { 
+        font-size: clamp(32px, 11vw, 56px); 
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+      .hero-pillars { 
+        font-size: 9px; 
+        letter-spacing: 0.25em;
+        word-spacing: 0.1em;
+      }
+      .hero-sub { 
+        font-size: clamp(14px, 3.5vw, 18px); 
+        padding: 0 4px;
+      }
+
+      .signup-wrap { padding: 0 4px; }
+      .signup-row { flex-direction: column; }
+      .signup-input { padding: 14px 15px; font-size: 13px; }
+      .signup-btn { 
+        padding: 13px; 
+        text-align: center; 
+        width: 100%; 
+        font-size: 10px;
+        letter-spacing: 0.15em;
+      }
+      .signup-note { font-size: 8px; letter-spacing: 0.1em; }
+
+      .section-wrap { padding: 48px 14px; }
+
+      .pillars-grid { grid-template-columns: 1fr; }
+      .pillar { 
+        border-right: none; 
+        border-bottom: 1px solid var(--border); 
+        padding: 28px 18px;
+      }
+      .pillar:last-child { border-bottom: none; }
+      .pillar-name { font-size: 18px; }
+      .pillar-desc { font-size: 14px; }
+
+      .ws-card { padding: 20px 14px; }
+      .ws-coming { grid-template-columns: 1fr; }
+      .ws-card-top { flex-direction: column; gap: 14px; }
+      .ws-name { font-size: clamp(18px, 5vw, 28px); }
+      .ws-desc { font-size: 15px; }
+
+      .mission-strip { padding: 50px 16px; }
+      .mission-quote { 
+        font-size: clamp(15px, 4vw, 22px);
+        padding: 0 4px;
+      }
+
+      footer { 
+        padding: 24px 16px; 
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .footer-copy { 
+        font-size: 8px; 
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-title { font-size: clamp(20px, 5vw, 28px); }
+      .hero-badge { padding: 4px 10px; }
+      .hero-badge-text { font-size: 7px; letter-spacing: 0.12em; }
+      .hero-pillars { letter-spacing: 0.18em; font-size: 9px; }
+      .hero-sub { font-size: 15px; }
+      nav { padding: 12px 14px; }
+      .nav-wordmark { font-size: 9px; letter-spacing: 0.1em; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 9px; letter-spacing: 0.1em; }
+      .ws-name { font-size: clamp(22px, 7vw, 32px); }
+      .signup-label { font-size: 8px; letter-spacing: 0.2em; }
+      .mission-quote { font-size: 15px; }
+    }
+
+    @media (max-width: 360px) {
+      .hero-title { font-size: 18px; }
+      .nav-links { display: none; }
+      .hero { padding: 90px 14px 50px; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="beta-banner" href="https://woeshield.pointwoebegone.com" target="_blank" rel="noopener">
+  <div class="beta-banner-dot"></div>
+  <span class="beta-banner-text">WoeShield Beta is <em>Live</em> &nbsp;·&nbsp; Try it free — no account needed</span>
+  <span class="beta-banner-arrow">↗</span>
+</a>
+
+<canvas id="bg-canvas"></canvas>
+
+<nav>
+  <div class="nav-left">
+    <img class="nav-logo-img" src="https://res.cloudinary.com/deqbnjh8f/image/upload/f_auto,q_auto/WhatsApp_Image_2026-04-03_at_8.08.12_PM_jbn1tf" alt="Point Woebegone"/>
+    <div class="nav-wordmark">Point Woebegone</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#woeshield">WoeShield</a></li>
+    <li><a href="https://x.com/pointwoebegone" target="_blank">X / Twitter</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">
+    <div class="hero-badge-dot"></div>
+    <span class="hero-badge-text">Founded March 2026 &nbsp;·&nbsp; Building now</span>
+  </div>
+
+  <img class="hero-logo" src="https://res.cloudinary.com/deqbnjh8f/image/upload/f_auto,q_auto/WhatsApp_Image_2026-04-03_at_8.08.12_PM_jbn1tf" alt="Point Woebegone"/>
+
+  <h1 class="hero-title">Point <span class="woe">Woe</span>begone</h1>
+
+  <div class="hero-divider"></div>
+
+  <p class="hero-pillars">Privacy &nbsp;·&nbsp; Security &nbsp;·&nbsp; Trust</p>
+
+  <p class="hero-sub">
+    The trust and privacy layer between humanity and the decentralized economy.
+    The end of woes. The beginning of trust.
+  </p>
+
+  <div class="signup-wrap">
+    <span class="signup-label">Get WoeShield Early Access</span>
+    <div class="signup-row" id="form-wrap">
+      <input
+        class="signup-input"
+        type="email"
+        id="email-input"
+        placeholder="your@email.com"
+        autocomplete="off"
+      />
+      <button class="signup-btn" onclick="handleSignup()">Join Early</button>
+    </div>
+    <div class="success-msg" id="success-msg">
+      ✦ &nbsp; You're in. We'll be in touch. &nbsp; ✦
+    </div>
+    <p class="signup-note">Early supporters get perks. No spam. Only signal.</p>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<div class="section-wrap reveal" id="mission">
+  <div class="section-label">The Foundation</div>
+  <div class="pillars-grid">
+    <div class="pillar">
+      <div class="pillar-num">01 / Pillar</div>
+      <div class="pillar-name">Privacy</div>
+      <p class="pillar-desc">Financial privacy is a human right. We build tools that give it back — without compromising security or enabling harm.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02 / Pillar</div>
+      <div class="pillar-name">Security</div>
+      <p class="pillar-desc">AI-powered threat intelligence. Built for the real world. Updated as new attack vectors emerge — so you're never behind.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03 / Pillar</div>
+      <div class="pillar-name">Trust</div>
+      <p class="pillar-desc">We don't ask you to trust us. We build systems that make trust verifiable, auditable, and earned — not assumed.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap reveal" id="woeshield">
+  <div class="section-label">First Product</div>
+  <div class="ws-card">
+    <div class="ws-card-top">
+      <div>
+        <div class="ws-stage">Stage 01 · Beta Live</div>
+        <div class="ws-name"><span>Woe</span>Shield</div>
+        <div class="ws-byline">by Point Woebegone</div>
+      </div>
+      <a class="ws-status" href="https://woeshield.pointwoebegone.com" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="ws-status-dot" style="background:#4ade80; animation: betaPulse 2s ease-in-out infinite;"></div>
+        <span class="ws-status-text" style="color:#4ade80;">Beta Live — Try it Free</span>
+      </a>
+    </div>
+
+    <p class="ws-desc">
+      Paste any suspicious email, link, message, or crypto transaction.
+      WoeShield analyses it instantly and tells you exactly what you're dealing with.
+      Safe, suspicious, or dangerous. No guessing.
+    </p>
+
+    <div class="ws-coming">
+      <div class="ws-coming-item">
+        <div class="ws-coming-tag">Coming</div>
+        <div class="ws-coming-title">Threat Intelligence DB</div>
+      </div>
+      <div class="ws-coming-item">
+        <div class="ws-coming-tag">Coming</div>
+        <div class="ws-coming-title">Telegram Checker</div>
+      </div>
+      <div class="ws-coming-item">
+        <div class="ws-coming-tag">Coming</div>
+        <div class="ws-coming-title">Business API Access</div>
+      </div>
+    </div>
+
+    <p class="ws-cta-text">
+      The beta is live. <em><a href="https://woeshield.pointwoebegone.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Try WoeShield free</a></em> — paste any suspicious email, link, message, or crypto transaction and get an instant verdict.
+      Sign up above to get <em>Early Access</em> with higher limits, scan history, and perks — as a thank you for believing before it was obvious.
+    </p>
+  </div>
+</div>
+
+<div class="mission-strip reveal">
+  <p class="mission-quote">
+    "AI is everywhere. Crypto isn't, yet.<br/>
+    The missing piece is <em>trust</em>.<br/>
+    The missing piece is <em>privacy</em>.<br/>
+    <em>That's what we're here to build.</em>"
+  </p>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-wordmark">Point Woebegone</div>
+    <div class="footer-copy">© 2026 Point Woebegone · Privacy. Security. Trust.</div>
+  </div>
+  <div class="footer-right">
+    <a href="https://x.com/pointwoebegone" target="_blank">X / Twitter</a>
+    <a href="#woeshield">WoeShield</a>
+  </div>
+</footer>
+
+<script>
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    drawBg();
+  }
+
+  function drawBg() {
+    const W = canvas.width, H = canvas.height;
+    const cx = W / 2, cy = H / 2;
+    ctx.clearRect(0, 0, W, H);
+
+    const grad = ctx.createRadialGradient(cx, cy * 0.6, 0, cx, cy * 0.6, Math.max(W, H) * 0.55);
+    grad.addColorStop(0, 'rgba(22, 16, 3, 0.95)');
+    grad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    for (let i = 0; i < 12; i++) {
+      const rx = 55 + i * 80;
+      const ry = 48 + i * 70;
+      const alpha = Math.max(0.05 - i * 0.003, 0.01);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy * 0.68, rx, ry, 0, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(201, 168, 76, ${alpha})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    const rng = mulberry32(77);
+    for (let i = 0; i < 200; i++) {
+      const x = rng() * W;
+      const y = rng() * H;
+      const r = rng() * 1.0;
+      const a = rng() * 0.22 + 0.04;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(201,168,76,${a})`;
+      ctx.fill();
+    }
+  }
+
+  function mulberry32(seed) {
+    return function() {
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    }
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  async function handleSignup() {
+    const emailInput = document.getElementById('email-input');
+    const email = emailInput.value.trim();
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(email)) {
+      emailInput.style.outline = '1px solid #c94c4c';
+      setTimeout(() => emailInput.style.outline = '', 1500);
+      return;
+    }
+
+    const btn = document.querySelector('.signup-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/xgopnkvk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      if (res.ok) {
+        document.getElementById('form-wrap').style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+      } else {
+        btn.textContent = 'Try Again';
+        btn.disabled = false;
+      }
+    } catch (err) {
+      // Fallback — still show success, log locally
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      console.log('Signup (offline fallback):', email);
+    }
+  }
+
+  document.getElementById('email-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') handleSignup();
+  });
+</script>
+</body>
+</html>
