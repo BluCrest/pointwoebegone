@@ -182,24 +182,6 @@
     }
     .hero-cta:hover { background: #E8D48B; gap: 14px; }
 
-    .hero-scroll {
-      position: absolute; bottom: 40px;
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      opacity: 0; animation: up 0.8s ease 1s forwards;
-    }
-    .hero-scroll span {
-      font-size: 10px; letter-spacing: 0.3em;
-      color: var(--gray-400); text-transform: uppercase;
-    }
-    .hero-scroll-line {
-      width: 1px; height: 32px;
-      background: linear-gradient(to bottom, var(--gray-400), transparent);
-      animation: pulse-line 2s ease-in-out infinite;
-    }
-    @keyframes pulse-line {
-      0%,100% { opacity: 0.3; } 50% { opacity: 1; }
-    }
-
     @keyframes up {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -463,10 +445,6 @@
     <div class="hero-line"></div>
     <p class="hero-sub">The trust layer between humanity and the decentralized economy. Where AI meets crypto. Where privacy meets proof.</p>
     <a href="#products" class="hero-cta">Explore our work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="hero-scroll-line"></div>
-    </div>
   </section>
 
   <!-- PHILOSOPHY -->
