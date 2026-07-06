@@ -5,25 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Point Woebegone — Privacy. Security. Trust.</title>
-  <meta name="description" content="Point Woebegone builds AI-powered tools at the intersection of privacy, security, and decentralized trust. WoeShield — free threat detection for emails, links, and crypto transactions.">
-  <meta name="keywords" content="cybersecurity, AI privacy, crypto security, Web3 trust, WoeShield, threat detection, decentralized identity, wallet security, on-chain analysis">
+  <meta name="description" content="Point Woebegone builds AI-powered tools at the intersection of privacy, security, and decentralized trust.">
+  <meta name="keywords" content="cybersecurity, AI privacy, crypto security, Web3 trust, WoeShield, threat detection">
   <meta name="author" content="Point Woebegone">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pointwoebegone.com/">
 
   <meta property="og:title" content="Point Woebegone — Privacy. Security. Trust.">
-  <meta property="og:description" content="AI-powered tools at the intersection of privacy, security, and decentralized trust. Free to use. No account needed.">
+  <meta property="og:description" content="AI-powered tools at the intersection of privacy, security, and decentralized trust.">
   <meta property="og:url" content="https://pointwoebegone.com">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Point Woebegone">
   <meta property="og:image" content="https://res.cloudinary.com/deqbnjh8f/image/upload/f_auto,q_auto/WhatsApp_Image_2026-04-03_at_8.08.12_PM_jbn1tf">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@pointwoebegone">
-  <meta name="twitter:creator" content="@pointwoebegone">
   <meta name="twitter:title" content="Point Woebegone — Privacy. Security. Trust.">
   <meta name="twitter:description" content="AI-powered tools at the intersection of privacy, security, and decentralized trust.">
   <meta name="twitter:image" content="https://res.cloudinary.com/deqbnjh8f/image/upload/f_auto,q_auto/WhatsApp_Image_2026-04-03_at_8.08.12_PM_jbn1tf">
@@ -37,16 +33,13 @@
     "logo": "https://res.cloudinary.com/deqbnjh8f/image/upload/f_auto,q_auto/WhatsApp_Image_2026-04-03_at_8.08.12_PM_jbn1tf",
     "description": "AI-powered tools at the intersection of privacy, security, and decentralized trust.",
     "foundingDate": "2026",
-    "sameAs": [
-      "https://x.com/pointwoebegone",
-      "https://github.com/BluCrest"
-    ]
+    "sameAs": ["https://x.com/pointwoebegone", "https://github.com/BluCrest"]
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -55,818 +48,384 @@
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    html, body { overflow-x: hidden; max-width: 100%; }
     img { max-width: 100%; height: auto; }
 
     :root {
       --gold: #C9A84C;
-      --gold-light: #E8D48B;
-      --gold-dim: #8B7332;
-      --gold-faint: rgba(201,168,76,0.06);
-      --gold-glow: rgba(201,168,76,0.15);
+      --gold-soft: rgba(201,168,76,0.08);
       --black: #050505;
-      --surface: #0A0A0A;
-      --surface-2: #111111;
-      --border: rgba(201,168,76,0.1);
-      --border-subtle: rgba(255,255,255,0.04);
-      --text: #E8E0D0;
-      --text-dim: #6B6350;
-      --text-mid: #9A8E78;
       --white: #FAFAF8;
-      --serif: 'Instrument Serif', Georgia, serif;
-      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --gray-100: #E8E0D0;
+      --gray-200: #B0A890;
+      --gray-300: #706858;
+      --gray-400: #403828;
+      --border: rgba(201,168,76,0.08);
+      --border-strong: rgba(201,168,76,0.15);
+      --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
     }
 
     body {
       background: var(--black);
-      color: var(--text);
+      color: var(--gray-100);
       font-family: var(--sans);
       font-weight: 300;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
-    /* ── CURSOR ── */
-    .cursor {
-      position: fixed;
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s, height 0.3s, opacity 0.3s;
-      opacity: 0;
-      mix-blend-mode: screen;
-    }
-    .cursor.active { opacity: 1; }
-    .cursor.hover { width: 60px; height: 60px; }
+    ::selection { background: var(--gold); color: var(--black); }
 
-    @media (max-width: 768px) { .cursor { display: none; } }
-
-    /* ── NOISE OVERLAY ── */
+    /* ── NOISE ── */
     body::after {
       content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.02;
-      z-index: 10000;
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.018;
       pointer-events: none;
+      z-index: 10000;
     }
 
-    /* ── BACKGROUND CANVAS ── */
-    #bg-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100%; height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
+    /* ── CANVAS ── */
+    #bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 
     /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 clamp(20px, 4vw, 48px);
-      height: 64px;
-      background: rgba(5,5,5,0.6);
-      backdrop-filter: blur(24px) saturate(1.2);
-      border-bottom: 1px solid var(--border-subtle);
-      transition: background 0.4s;
-    }
-    nav.scrolled { background: rgba(5,5,5,0.92); }
-
-    .nav-left { display: flex; align-items: center; gap: 12px; }
-
-    .nav-logo {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--border);
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 clamp(24px, 5vw, 60px);
+      height: 60px;
+      background: rgba(5,5,5,0.5);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-brand {
       font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-size: 14px; font-weight: 500;
+      letter-spacing: 0.06em;
       color: var(--white);
     }
     .nav-brand span { color: var(--gold); }
 
-    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
-
+    .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      color: var(--text-dim);
+      font-size: 12px; font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--gray-300);
       text-decoration: none;
       text-transform: uppercase;
       transition: color 0.3s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1px;
-      background: var(--gold);
-      transition: width 0.3s;
     }
     .nav-links a:hover { color: var(--white); }
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-cta {
-      font-size: 10px !important;
-      font-weight: 500 !important;
-      letter-spacing: 0.12em !important;
-      color: var(--gold) !important;
-      border: 1px solid var(--border);
-      padding: 7px 16px;
-      transition: all 0.3s !important;
-    }
-    .nav-cta:hover {
-      background: var(--gold) !important;
-      color: var(--black) !important;
-    }
-    .nav-cta::after { display: none !important; }
-
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .nav-hamburger span {
-      width: 20px; height: 1.5px;
-      background: var(--text);
-      transition: all 0.3s;
-    }
 
     /* ── HERO ── */
     .hero {
-      position: relative;
-      z-index: 2;
+      position: relative; z-index: 2;
       min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       text-align: center;
       padding: 120px 24px 80px;
     }
 
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid var(--border);
-      padding: 8px 18px;
-      margin-bottom: 40px;
-      background: rgba(201,168,76,0.03);
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.2s forwards;
-    }
-
-    .hero-eyebrow-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      animation: pulse 2.5s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
-      50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(201,168,76,0); }
-    }
-
-    .hero-eyebrow-text {
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      color: var(--text-dim);
+    .hero-label {
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--gray-300);
       text-transform: uppercase;
-    }
-
-    .hero-logo {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 36px;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 60px rgba(201,168,76,0.12), 0 0 120px rgba(201,168,76,0.04);
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.35s forwards;
+      margin-bottom: 40px;
+      opacity: 0; animation: up 0.8s ease 0.2s forwards;
     }
 
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(40px, 8vw, 88px);
+      font-size: clamp(44px, 9vw, 96px);
       font-weight: 400;
       line-height: 1.05;
       color: var(--white);
       letter-spacing: -0.02em;
-      margin-bottom: 16px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.5s forwards;
+      margin-bottom: 28px;
+      opacity: 0; animation: up 0.8s ease 0.4s forwards;
     }
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold);
-    }
+    .hero-title em { font-style: italic; color: var(--gold); }
 
-    .hero-rule {
-      width: 48px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 28px auto;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.65s forwards;
-    }
-
-    .hero-pillars {
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.35em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.75s forwards;
+    .hero-line {
+      width: 40px; height: 1px;
+      background: var(--gold);
+      margin: 0 auto 28px;
+      opacity: 0; animation: up 0.8s ease 0.55s forwards;
     }
 
     .hero-sub {
-      font-family: var(--serif);
-      font-size: clamp(17px, 2.5vw, 22px);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--text-mid);
-      line-height: 1.7;
-      max-width: 540px;
-      margin: 0 auto 48px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.85s forwards;
-    }
-
-    /* ── EMAIL FORM ── */
-    .hero-form-wrap {
-      width: 100%;
-      max-width: 440px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 1s forwards;
-    }
-
-    .hero-form-label {
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.3em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 12px;
-    }
-
-    .hero-form {
-      display: flex;
-      border: 1px solid var(--border);
-      background: rgba(10,10,10,0.8);
-      backdrop-filter: blur(12px);
-      transition: border-color 0.3s;
-    }
-    .hero-form:focus-within { border-color: var(--gold); }
-
-    .hero-form input {
-      flex: 1;
-      min-width: 0;
-      background: transparent;
-      border: none;
-      outline: none;
-      padding: 14px 16px;
-      font-family: var(--sans);
-      font-size: 13px;
+      font-size: clamp(16px, 2vw, 20px);
       font-weight: 300;
-      color: var(--text);
+      color: var(--gray-200);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 56px;
+      opacity: 0; animation: up 0.8s ease 0.65s forwards;
     }
-    .hero-form input::placeholder { color: var(--text-dim); }
 
-    .hero-form button {
-      background: var(--gold);
-      border: none;
-      padding: 14px 22px;
-      font-family: var(--sans);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      color: var(--black);
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s;
-      white-space: nowrap;
-    }
-    .hero-form button:hover { background: var(--gold-light); }
-
-    .hero-form-note {
-      font-size: 9px;
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 12px; font-weight: 500;
       letter-spacing: 0.12em;
-      color: var(--text-dim);
-      margin-top: 10px;
-      text-align: center;
+      color: var(--black);
+      background: var(--gold);
+      padding: 14px 32px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      opacity: 0; animation: up 0.8s ease 0.8s forwards;
     }
-
-    .hero-form-success {
-      display: none;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-      text-align: center;
-      padding: 14px;
-      border: 1px solid var(--border);
-      background: rgba(201,168,76,0.04);
-    }
+    .hero-cta:hover { background: #E8D48B; gap: 14px; }
 
     .hero-scroll {
-      margin-top: 60px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 1.3s forwards;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+      position: absolute; bottom: 40px;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; animation: up 0.8s ease 1s forwards;
     }
     .hero-scroll span {
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.4em;
-      color: var(--text-dim);
-      text-transform: uppercase;
+      font-size: 10px; letter-spacing: 0.3em;
+      color: var(--gray-400); text-transform: uppercase;
     }
     .hero-scroll-line {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, var(--gold-dim), transparent);
-      animation: scrollPulse 2.5s ease-in-out infinite;
+      width: 1px; height: 32px;
+      background: linear-gradient(to bottom, var(--gray-400), transparent);
+      animation: pulse-line 2s ease-in-out infinite;
     }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.2; }
-      50% { opacity: 0.8; }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @keyframes pulse-line {
+      0%,100% { opacity: 0.3; } 50% { opacity: 1; }
     }
 
-    /* ── REVEAL SYSTEM ── */
+    @keyframes up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── REVEAL ── */
     .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
 
-    /* ── SECTION FRAMEWORK ── */
+    /* ── SECTION ── */
     .section {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 100px clamp(20px, 4vw, 48px);
+      position: relative; z-index: 2;
+      max-width: 1080px; margin: 0 auto;
+      padding: 120px clamp(24px, 5vw, 60px);
     }
 
-    .section-eyebrow {
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.4em;
-      color: var(--gold-dim);
+    .section-label {
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.35em;
+      color: var(--gray-300);
       text-transform: uppercase;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .section-eyebrow::after {
-      content: '';
-      height: 1px;
-      width: 40px;
-      background: var(--border);
+      margin-bottom: 20px;
     }
 
     .section-title {
       font-family: var(--serif);
-      font-size: clamp(28px, 5vw, 48px);
+      font-size: clamp(28px, 5vw, 44px);
       font-weight: 400;
       color: var(--white);
-      line-height: 1.15;
+      line-height: 1.2;
       margin-bottom: 20px;
     }
     .section-title em { color: var(--gold); font-style: italic; }
 
     .section-desc {
-      font-size: 15px;
-      color: var(--text-mid);
-      line-height: 1.75;
-      max-width: 560px;
+      font-size: 15px; color: var(--gray-200);
+      line-height: 1.75; max-width: 520px;
     }
 
     /* ── DIVIDER ── */
     .divider {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
+      max-width: 1080px; margin: 0 auto;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
-    }
-
-    /* ── PHILOSOPHY (3 pillars) ── */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
       background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 48px;
     }
 
-    .pillar-card {
+    /* ── PILLARS ── */
+    .pillars {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 56px;
+    }
+
+    .pillar {
       background: var(--black);
-      padding: 40px 28px;
-      transition: background 0.4s;
+      padding: 44px 32px;
       position: relative;
+      transition: background 0.4s;
     }
-    .pillar-card::before {
+    .pillar::after {
       content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0;
-      transition: opacity 0.4s;
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
     }
-    .pillar-card:hover { background: var(--gold-faint); }
-    .pillar-card:hover::before { opacity: 1; }
+    .pillar:hover { background: var(--gold-soft); }
+    .pillar:hover::after { transform: scaleX(1); }
 
     .pillar-num {
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.3em;
-      color: var(--text-dim);
-      margin-bottom: 20px;
-    }
-
-    .pillar-icon {
-      width: 36px; height: 36px;
-      margin-bottom: 20px;
-      color: var(--gold);
-      opacity: 0.7;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.25em;
+      color: var(--gray-400);
+      margin-bottom: 24px;
     }
 
     .pillar-name {
       font-family: var(--serif);
-      font-size: 26px;
-      color: var(--white);
-      margin-bottom: 14px;
+      font-size: 24px; color: var(--white);
+      margin-bottom: 16px;
     }
 
-    .pillar-desc {
-      font-size: 14px;
-      color: var(--text-mid);
+    .pillar-text {
+      font-size: 14px; color: var(--gray-200);
       line-height: 1.75;
     }
 
-    /* ── PRODUCTS ── */
-    .products-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 48px;
-    }
-
-    .product-card {
+    /* ── PRODUCT ── */
+    .product {
       border: 1px solid var(--border);
-      background: var(--surface);
-      padding: 40px;
+      background: rgba(10,10,10,0.6);
+      padding: 56px;
+      margin-top: 56px;
       position: relative;
-      overflow: hidden;
-      transition: border-color 0.4s, transform 0.4s;
+      transition: border-color 0.4s;
     }
-    .product-card:hover {
-      border-color: rgba(201,168,76,0.25);
-      transform: translateY(-2px);
-    }
-    .product-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-    .product-card:hover::before { opacity: 1; }
+    .product:hover { border-color: var(--border-strong); }
 
-    .product-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      border: 1px solid rgba(74,222,128,0.2);
-      padding: 5px 12px;
-      margin-bottom: 20px;
+    .product-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px; margin-bottom: 32px;
+      flex-wrap: wrap;
     }
-    .product-status-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: #4ade80;
-      animation: pulse 2.5s ease-in-out infinite;
-    }
-    .product-status-text {
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      color: #4ade80;
-      text-transform: uppercase;
-    }
-
-    .product-status.coming {
-      border-color: rgba(201,168,76,0.15);
-    }
-    .product-status.coming .product-status-dot { background: var(--gold); }
-    .product-status.coming .product-status-text { color: var(--gold); }
 
     .product-name {
       font-family: var(--serif);
-      font-size: clamp(24px, 3vw, 32px);
-      color: var(--white);
-      margin-bottom: 6px;
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--white); line-height: 1.1;
     }
     .product-name em { color: var(--gold); font-style: italic; }
 
     .product-byline {
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .product-desc {
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
-
-    .product-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-
-    .product-tag {
-      font-size: 9px;
-      font-weight: 400;
+      font-size: 11px; font-weight: 400;
       letter-spacing: 0.15em;
-      color: var(--text-dim);
-      border: 1px solid var(--border-subtle);
-      padding: 5px 12px;
+      color: var(--gray-300);
       text-transform: uppercase;
-      transition: all 0.3s;
-    }
-    .product-tag:hover {
-      border-color: var(--border);
-      color: var(--text-mid);
+      margin-top: 8px;
     }
 
-    .product-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+    .product-link {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em;
       color: var(--gold);
       text-decoration: none;
       text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 6px;
       transition: gap 0.3s;
+      flex-shrink: 0;
     }
-    .product-cta:hover { gap: 12px; }
-    .product-cta-arrow {
-      transition: transform 0.3s;
-    }
-    .product-cta:hover .product-cta-arrow { transform: translateX(4px); }
+    .product-link:hover { gap: 10px; }
 
-    /* ── METRICS ── */
-    .metrics-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 48px;
-    }
-
-    .metric-cell {
-      background: var(--black);
-      padding: 36px 24px;
-      text-align: center;
-      transition: background 0.3s;
-    }
-    .metric-cell:hover { background: var(--gold-faint); }
-
-    .metric-num {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4vw, 40px);
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .metric-label {
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-    }
-
-    /* ── MANIFESTO ── */
-    .manifesto {
-      position: relative;
-      z-index: 2;
-      padding: 100px clamp(20px, 4vw, 48px);
-      text-align: center;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(180deg, var(--black) 0%, rgba(201,168,76,0.02) 50%, var(--black) 100%);
-    }
-
-    .manifesto-quote {
-      font-family: var(--serif);
-      font-size: clamp(20px, 4vw, 36px);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .manifesto-quote em {
-      color: var(--gold);
-      font-style: italic;
-    }
-
-    .manifesto-attr {
-      margin-top: 24px;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.25em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-    }
-
-    /* ── PRODUCTS SHOWCASE (wide) ── */
-    .showcase-card {
-      border: 1px solid var(--border);
-      background: var(--surface);
-      padding: 48px;
-      position: relative;
-      overflow: hidden;
-      margin-top: 48px;
-    }
-    .showcase-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
-    }
-
-    .showcase-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-    }
-
-    .showcase-stage {
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.3em;
-      color: var(--gold-dim);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .showcase-name {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4vw, 44px);
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 6px;
-    }
-    .showcase-name em { color: var(--gold); font-style: italic; }
-
-    .showcase-byline {
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-    }
-
-    .showcase-desc {
-      font-size: 16px;
-      color: var(--text-mid);
-      line-height: 1.8;
-      max-width: 600px;
+    .product-desc {
+      font-size: 15px; color: var(--gray-200);
+      line-height: 1.8; max-width: 580px;
       margin-bottom: 32px;
     }
 
-    .showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
+    .product-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
       border: 1px solid var(--border);
-      margin-bottom: 32px;
     }
 
-    .showcase-feature {
+    .product-cell {
       background: var(--black);
       padding: 20px;
       transition: background 0.3s;
     }
-    .showcase-feature:hover { background: var(--gold-faint); }
+    .product-cell:hover { background: var(--gold-soft); }
 
-    .showcase-feature-tag {
-      font-size: 8px;
-      font-weight: 400;
-      letter-spacing: 0.25em;
-      color: var(--gold-dim);
+    .product-cell-label {
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--gray-400);
       text-transform: uppercase;
       margin-bottom: 6px;
     }
 
-    .showcase-feature-name {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      color: var(--text);
+    .product-cell-name {
+      font-size: 12px; font-weight: 400;
+      color: var(--gray-100);
+    }
+
+    /* ── QUOTE ── */
+    .quote-section {
+      position: relative; z-index: 2;
+      padding: 120px clamp(24px, 5vw, 60px);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .quote-text {
+      font-family: var(--serif);
+      font-size: clamp(20px, 4vw, 34px);
+      font-weight: 400; font-style: italic;
+      color: var(--gray-100);
+      line-height: 1.65;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .quote-text em { color: var(--gold); font-style: italic; }
+
+    .quote-attr {
+      margin-top: 28px;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.25em;
+      color: var(--gray-400);
+      text-transform: uppercase;
     }
 
     /* ── FOOTER ── */
-    footer {
-      position: relative;
-      z-index: 2;
-      padding: 40px clamp(20px, 4vw, 48px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--border-subtle);
-      flex-wrap: wrap;
-      gap: 16px;
+    .footer {
+      position: relative; z-index: 2;
+      padding: 40px clamp(24px, 5vw, 60px);
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap; gap: 16px;
     }
 
     .footer-brand {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      color: var(--text-dim);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--gray-300);
     }
     .footer-brand span { color: var(--gold); }
 
     .footer-copy {
-      font-size: 10px;
-      color: var(--text-dim);
-      letter-spacing: 0.05em;
+      font-size: 10px; color: var(--gray-400);
       margin-top: 4px;
     }
 
-    .footer-links { display: flex; gap: 24px; }
-
+    .footer-links { display: flex; gap: 28px; }
     .footer-links a {
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      color: var(--text-dim);
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--gray-400);
       text-decoration: none;
       text-transform: uppercase;
       transition: color 0.3s;
@@ -874,322 +433,132 @@
     .footer-links a:hover { color: var(--gold); }
 
     /* ── MOBILE ── */
-    @media (max-width: 900px) {
-      .pillars-grid { grid-template-columns: 1fr 1fr; }
-      .pillar-card:nth-child(3) {
-        grid-column: 1 / -1;
-        border-top: 1px solid var(--border);
-      }
-      .products-grid { grid-template-columns: 1fr; }
-      .metrics-row { grid-template-columns: repeat(2, 1fr); }
-      .showcase-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 680px) {
-      nav { padding: 0 16px; }
+    @media (max-width: 768px) {
       .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-
-      .hero { padding: 100px 20px 60px; }
-      .hero-title { font-size: clamp(36px, 10vw, 56px); }
-      .hero-sub { font-size: 16px; }
-
-      .section { padding: 60px 16px; }
-
-      .pillars-grid { grid-template-columns: 1fr; }
-      .pillar-card { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 20px; }
-      .pillar-card:last-child { border-bottom: none; }
-
-      .products-grid { grid-template-columns: 1fr; }
-
-      .metrics-row { grid-template-columns: 1fr 1fr; }
-
-      .showcase-card { padding: 24px 16px; }
-      .showcase-grid { grid-template-columns: 1fr; }
-      .showcase-top { flex-direction: column; }
-
-      .manifesto { padding: 60px 16px; }
-
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 28px 16px;
-      }
-      .footer-copy { word-break: break-word; }
-    }
-
-    @media (max-width: 430px) {
-      .hero-eyebrow { padding: 6px 12px; }
-      .hero-eyebrow-text { font-size: 8px; letter-spacing: 0.12em; }
-      .hero-form { flex-direction: column; }
-      .hero-form button { width: 100%; padding: 14px; }
+      .pillars { grid-template-columns: 1fr; }
+      .product { padding: 32px 20px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <canvas id="bg-canvas"></canvas>
+  <canvas id="bg"></canvas>
 
-  <!-- ── NAV ── -->
-  <nav id="nav">
-    <div class="nav-left">
-      <img class="nav-logo" src="https://res.cloudinary.com/deqbnjh8f/image/upload/f_auto,q_auto/WhatsApp_Image_2026-04-03_at_8.08.12_PM_jbn1tf" alt="Point Woebegone"/>
-      <div class="nav-brand">Point <span>Woebegone</span></div>
-    </div>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-brand">Point <span>Woebegone</span></div>
     <ul class="nav-links">
       <li><a href="#philosophy">Philosophy</a></li>
       <li><a href="#products">Products</a></li>
-      <li><a href="#manifesto">Manifesto</a></li>
-      <li><a href="https://x.com/pointwoebegone" target="_blank" rel="noopener">X / Twitter</a></li>
-      <li><a href="https://github.com/BluCrest" target="_blank" rel="noopener" class="nav-cta">GitHub</a></li>
+      <li><a href="https://x.com/pointwoebegone" target="_blank" rel="noopener">X</a></li>
     </ul>
-    <div class="nav-hamburger" id="hamburger" onclick="this.classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </div>
   </nav>
 
-  <!-- ── HERO ── -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-dot"></div>
-      <span class="hero-eyebrow-text">Founded 2026 &nbsp;&middot;&nbsp; Building in public</span>
-    </div>
-
-    <img class="hero-logo" src="https://res.cloudinary.com/deqbnjh8f/image/upload/f_auto,q_auto/WhatsApp_Image_2026-04-03_at_8.08.12_PM_jbn1tf" alt=""/>
-
+    <div class="hero-label">Founded 2026 · Building in public</div>
     <h1 class="hero-title">Point <em>Woe</em>begone</h1>
-
-    <div class="hero-rule"></div>
-
-    <p class="hero-pillars">Privacy &nbsp;&middot;&nbsp; Security &nbsp;&middot;&nbsp; Trust</p>
-
-    <p class="hero-sub">
-      The trust layer between humanity and the decentralized economy.
-      Where AI meets crypto. Where privacy meets proof.
-    </p>
-
-    <div class="hero-form-wrap">
-      <span class="hero-form-label">Get early access</span>
-      <div class="hero-form" id="hero-form">
-        <input type="email" id="email-input" placeholder="your@email.com" autocomplete="off"/>
-        <button onclick="handleSignup()">Join</button>
-      </div>
-      <div class="hero-form-success" id="hero-success">
-        You're in. We'll be in touch.
-      </div>
-      <p class="hero-form-note">Early supporters get perks. No spam. Only signal.</p>
-    </div>
-
+    <div class="hero-line"></div>
+    <p class="hero-sub">The trust layer between humanity and the decentralized economy. Where AI meets crypto. Where privacy meets proof.</p>
+    <a href="#products" class="hero-cta">Explore our work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     <div class="hero-scroll">
       <span>Scroll</span>
       <div class="hero-scroll-line"></div>
     </div>
   </section>
 
-  <!-- ── PHILOSOPHY ── -->
+  <!-- PHILOSOPHY -->
   <div class="divider"></div>
   <section class="section" id="philosophy">
-    <div class="section-eyebrow reveal">The Foundation</div>
-    <div class="section-title reveal">Three pillars.<br/>One mission.</div>
+    <div class="section-label reveal">The Foundation</div>
+    <div class="section-title reveal">Three pillars.<br>One mission.</div>
     <div class="section-desc reveal">Every product we build is rooted in the same conviction: the future of the internet depends on getting these three things right.</div>
 
-    <div class="pillars-grid">
-      <div class="pillar-card reveal reveal-delay-1">
+    <div class="pillars">
+      <div class="pillar reveal d1">
         <div class="pillar-num">01</div>
-        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="M9 12l2 2 4-4"/>
-        </svg>
         <div class="pillar-name">Privacy</div>
-        <p class="pillar-desc">Financial privacy is a human right. We build tools that give it back — without compromising security or enabling harm. Your data is yours. Always.</p>
+        <p class="pillar-text">Financial privacy is a human right. We build tools that give it back — without compromising security or enabling harm. Your data is yours.</p>
       </div>
-      <div class="pillar-card reveal reveal-delay-2">
+      <div class="pillar reveal d2">
         <div class="pillar-num">02</div>
-        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-          <path d="M7 11V7a5 5 0 0110 0v4"/>
-          <circle cx="12" cy="16" r="1"/>
-        </svg>
         <div class="pillar-name">Security</div>
-        <p class="pillar-desc">AI-powered threat intelligence, built for the real world. Updated as new attack vectors emerge — so you're never behind. Proactive, not reactive.</p>
+        <p class="pillar-text">AI-powered threat intelligence, built for the real world. Updated as new attack vectors emerge. Proactive, not reactive.</p>
       </div>
-      <div class="pillar-card reveal reveal-delay-3">
+      <div class="pillar reveal d3">
         <div class="pillar-num">03</div>
-        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-          <path d="M2 17l10 5 10-5"/>
-          <path d="M2 12l10 5 10-5"/>
-        </svg>
         <div class="pillar-name">Trust</div>
-        <p class="pillar-desc">We don't ask you to trust us. We build systems that make trust verifiable, auditable, and earned — not assumed. Proof over promises.</p>
+        <p class="pillar-text">We don't ask you to trust us. We build systems that make trust verifiable, auditable, and earned — not assumed.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── PRODUCTS ── -->
+  <!-- PRODUCTS -->
   <div class="divider"></div>
   <section class="section" id="products">
-    <div class="section-eyebrow reveal">Products</div>
+    <div class="section-label reveal">Products</div>
     <div class="section-title reveal">Built at the <em>intersection</em></div>
     <div class="section-desc reveal">AI-native tools for the crypto era. Privacy-first. Zero accounts. Open source where it matters.</div>
 
     <!-- WoeShield -->
-    <div class="showcase-card reveal">
-      <div class="showcase-top">
+    <div class="product reveal">
+      <div class="product-header">
         <div>
-          <div class="showcase-stage">Stage 01 &middot; Beta Live</div>
-          <div class="showcase-name"><em>Woe</em>Shield</div>
-          <div class="showcase-byline">by Point Woebegone</div>
+          <div class="product-name"><em>Woe</em>Shield</div>
+          <div class="product-byline">Threat detection · Free to use</div>
         </div>
-        <a class="product-status" href="https://woeshield.pointwoebegone.com" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="product-status-dot"></div>
-          <span class="product-status-text">Live &mdash; Try Free</span>
+        <a class="product-link" href="https://woeshield.pointwoebegone.com" target="_blank" rel="noopener">
+          Try it free
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </a>
       </div>
-
-      <p class="showcase-desc">
-        Paste any suspicious email, link, message, or crypto transaction.
-        WoeShield analyses it with AI and tells you exactly what you're dealing with.
-        Safe, suspicious, or dangerous. No guessing. No account needed.
-      </p>
-
-      <div class="showcase-grid">
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Feature</div>
-          <div class="showcase-feature-name">Email Phishing Detection</div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Feature</div>
-          <div class="showcase-feature-name">Crypto Transaction Scanner</div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Feature</div>
-          <div class="showcase-feature-name">Link & URL Analysis</div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Coming</div>
-          <div class="showcase-feature-name">Threat Intelligence DB</div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Coming</div>
-          <div class="showcase-feature-name">Telegram Checker</div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Coming</div>
-          <div class="showcase-feature-name">Business API Access</div>
-        </div>
+      <p class="product-desc">Paste any suspicious email, link, message, or crypto transaction. WoeShield analyses it with AI and tells you exactly what you're dealing with. Safe, suspicious, or dangerous. No guessing. No account needed.</p>
+      <div class="product-grid">
+        <div class="product-cell"><div class="product-cell-label">Feature</div><div class="product-cell-name">Email Phishing Detection</div></div>
+        <div class="product-cell"><div class="product-cell-label">Feature</div><div class="product-cell-name">Crypto Transaction Scanner</div></div>
+        <div class="product-cell"><div class="product-cell-label">Feature</div><div class="product-cell-name">Link & URL Analysis</div></div>
       </div>
-
-      <a class="product-cta" href="https://woeshield.pointwoebegone.com" target="_blank" rel="noopener">
-        Try WoeShield Free
-        <svg class="product-cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
     </div>
 
     <!-- Moodwave -->
-    <div class="showcase-card reveal" style="margin-top: 20px;">
-      <div class="showcase-top">
+    <div class="product reveal" style="margin-top:20px">
+      <div class="product-header">
         <div>
-          <div class="showcase-stage">Stage 02 &middot; Live</div>
-          <div class="showcase-name">Mood<span style="color:var(--gold);">wave</span></div>
-          <div class="showcase-byline">by Point Woebegone</div>
+          <div class="product-name">Mood<span style="color:var(--gold)">wave</span></div>
+          <div class="product-byline">Music mood intelligence · $5 one-time</div>
         </div>
-        <a class="product-status" href="https://moodwave.pointwoebegone.com" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="product-status-dot"></div>
-          <span class="product-status-text">Live &mdash; $5</span>
+        <a class="product-link" href="https://moodwave.pointwoebegone.com" target="_blank" rel="noopener">
+          Learn more
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </a>
       </div>
-
-      <p class="showcase-desc">
-        Your music. Every mood. Instantly organized.
-        Moodwave scans your entire Spotify library, classifies every track into 61 moods,
-        and curates playlists that actually match how you feel. No accounts beyond Spotify. No data stored.
-      </p>
-
-      <div class="showcase-grid">
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Feature</div>
-          <div class="showcase-feature-name">61 Mood Categories</div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Feature</div>
-          <div class="showcase-feature-name">500+ Track Library Scan</div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Feature</div>
-          <div class="showcase-feature-name">Smart Playlist Curation</div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Privacy</div>
-          <div class="showcase-feature-name">Zero Data Stored</div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Privacy</div>
-          <div class="showcase-feature-name">Session-Only Processing</div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-tag">Price</div>
-          <div class="showcase-feature-name">One-Time $5 &middot; No Subscription</div>
-        </div>
-      </div>
-
-      <a class="product-cta" href="https://moodwave.pointwoebegone.com" target="_blank" rel="noopener">
-        Try Moodwave
-        <svg class="product-cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- ── METRICS ── -->
-  <div class="divider"></div>
-  <section class="section">
-    <div class="section-eyebrow reveal">By the Numbers</div>
-    <div class="section-title reveal">Built different.<br/><em>Measured</em> differently.</div>
-
-    <div class="metrics-row reveal">
-      <div class="metric-cell">
-        <div class="metric-num" data-target="61" data-suffix="">0</div>
-        <div class="metric-label">Mood Categories</div>
-      </div>
-      <div class="metric-cell">
-        <div class="metric-num" data-target="500" data-suffix="+">0</div>
-        <div class="metric-label">Tracks Analyzed Per Build</div>
-      </div>
-      <div class="metric-cell">
-        <div class="metric-num" data-target="0" data-suffix="" data-display="0">0</div>
-        <div class="metric-label">Data Points Stored</div>
-      </div>
-      <div class="metric-cell">
-        <div class="metric-num" data-target="2" data-suffix="">0</div>
-        <div class="metric-label">Products Live</div>
+      <p class="product-desc">Your music. Every mood. Instantly organized. Moodwave scans your entire Spotify library, classifies every track into 61 moods, and curates playlists that actually match how you feel. No data stored. Ever.</p>
+      <div class="product-grid">
+        <div class="product-cell"><div class="product-cell-label">Feature</div><div class="product-cell-name">61 Mood Categories</div></div>
+        <div class="product-cell"><div class="product-cell-label">Feature</div><div class="product-cell-name">500+ Track Library Scan</div></div>
+        <div class="product-cell"><div class="product-cell-label">Privacy</div><div class="product-cell-name">Zero Data Stored</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ── MANIFESTO ── -->
-  <div class="manifesto" id="manifesto">
+  <!-- QUOTE -->
+  <section class="quote-section">
     <div class="reveal">
-      <div class="section-eyebrow" style="justify-content:center;">The Manifesto</div>
-      <p class="manifesto-quote">
-        "AI is everywhere. Crypto is transforming everything.<br/>
-        The missing piece is <em>trust</em>.<br/>
-        The missing piece is <em>privacy</em>.<br/>
-        The missing piece is <em>proof</em>.<br/><br/>
-        <em>That's what we're here to build.</em>"
-      </p>
-      <div class="manifesto-attr">Point Woebegone &middot; 2026</div>
+      <p class="quote-text">"AI is everywhere. Crypto is transforming everything. The missing piece is <em>trust</em>. The missing piece is <em>privacy</em>. The missing piece is <em>proof</em>. <em>That's what we're here to build.</em>"</p>
+      <div class="quote-attr">Point Woebegone · 2026</div>
     </div>
-  </div>
+  </section>
 
-  <!-- ── FOOTER ── -->
-  <footer>
+  <!-- FOOTER -->
+  <footer class="footer">
     <div>
       <div class="footer-brand">Point <span>Woebegone</span></div>
-      <div class="footer-copy">&copy; 2026 Point Woegone &middot; Privacy. Security. Trust.</div>
+      <div class="footer-copy">© 2026 Point Woebegone</div>
     </div>
     <div class="footer-links">
-      <a href="https://x.com/pointwoebegone" target="_blank" rel="noopener">X / Twitter</a>
+      <a href="https://x.com/pointwoebegone" target="_blank" rel="noopener">X</a>
       <a href="https://github.com/BluCrest" target="_blank" rel="noopener">GitHub</a>
       <a href="https://woeshield.pointwoebegone.com" target="_blank" rel="noopener">WoeShield</a>
       <a href="https://moodwave.pointwoebegone.com" target="_blank" rel="noopener">Moodwave</a>
@@ -1197,175 +566,40 @@
   </footer>
 
   <script>
-    // ── Custom Cursor ──
-    const cursor = document.getElementById('cursor');
-    let mx = 0, my = 0;
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px';
-      cursor.style.top = my + 'px';
-      cursor.classList.add('active');
-    });
-    document.querySelectorAll('a, button, .product-card, .pillar-card, .showcase-card').forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-
-    // ── Nav Scroll ──
-    window.addEventListener('scroll', () => {
-      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
-    });
-
-    // ── Scroll Reveal ──
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
+    // Reveal on scroll
+    const obs = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-    // ── Counter Animation ──
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseInt(el.dataset.target);
-          const suffix = el.dataset.suffix || '';
-          const display = el.dataset.display;
-          if (display !== undefined) {
-            el.textContent = display;
-          } else {
-            let current = 0;
-            const step = Math.max(1, Math.floor(target / 40));
-            const timer = setInterval(() => {
-              current += step;
-              if (current >= target) {
-                current = target;
-                clearInterval(timer);
-              }
-              el.textContent = current + suffix;
-            }, 30);
-          }
-          counterObserver.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.metric-num').forEach(el => counterObserver.observe(el));
-
-    // ── Email Signup ──
-    async function handleSignup() {
-      const input = document.getElementById('email-input');
-      const email = input.value.trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        input.style.outline = '1px solid #c94c4c';
-        setTimeout(() => input.style.outline = '', 1500);
-        return;
-      }
-      const btn = document.querySelector('.hero-form button');
-      btn.textContent = '...';
-      btn.disabled = true;
-      try {
-        const res = await fetch('https://formspree.io/f/xgopnkvk', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email })
-        });
-        if (res.ok) {
-          document.getElementById('hero-form').style.display = 'none';
-          document.getElementById('hero-success').style.display = 'block';
-        } else {
-          btn.textContent = 'Retry';
-          btn.disabled = false;
-        }
-      } catch {
-        document.getElementById('hero-form').style.display = 'none';
-        document.getElementById('hero-success').style.display = 'block';
-      }
-    }
-    document.getElementById('email-input').addEventListener('keydown', e => {
-      if (e.key === 'Enter') handleSignup();
-    });
-
-    // ── Background Canvas ──
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
+    // Background
+    const c = document.getElementById('bg');
+    const x = c.getContext('2d');
     let W, H;
-
-    function resize() {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-    }
-
-    function mulberry32(seed) {
-      return function() {
-        seed |= 0; seed = seed + 0x6D2B79F5 | 0;
-        var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
-        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-        return ((t ^ t >>> 14) >>> 0) / 4294967296;
-      }
-    }
-
-    // Particles
-    const particles = [];
-    const rng = mulberry32(42);
-    for (let i = 0; i < 80; i++) {
-      particles.push({
-        x: rng() * 2000,
-        y: rng() * 2000,
-        r: rng() * 1.5 + 0.3,
-        a: rng() * 0.3 + 0.05,
-        dx: (rng() - 0.5) * 0.15,
-        dy: (rng() - 0.5) * 0.1,
-      });
-    }
-
-    let t = 0;
+    function resize() { W = c.width = innerWidth; H = c.height = innerHeight; }
     function draw() {
-      ctx.clearRect(0, 0, W, H);
-
-      // Gradient mesh
+      x.clearRect(0, 0, W, H);
       const cx = W * 0.5, cy = H * 0.4;
-      const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.6);
-      grad.addColorStop(0, 'rgba(201,168,76,0.04)');
-      grad.addColorStop(0.4, 'rgba(201,168,76,0.015)');
-      grad.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, W, H);
-
-      // Subtle animated rings
-      for (let i = 0; i < 5; i++) {
-        const rx = 120 + i * 100 + Math.sin(t * 0.0005 + i) * 20;
-        const ry = 100 + i * 85 + Math.cos(t * 0.0004 + i) * 15;
-        const alpha = Math.max(0.04 - i * 0.006, 0.008);
-        ctx.beginPath();
-        ctx.ellipse(cx, cy, rx, ry, t * 0.0001 + i * 0.3, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(201,168,76,${alpha})`;
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
+      // Gradient
+      const g = x.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.55);
+      g.addColorStop(0, 'rgba(201,168,76,0.035)');
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      x.fillStyle = g;
+      x.fillRect(0, 0, W, H);
+      // Rings
+      const t = performance.now() * 0.0003;
+      for (let i = 0; i < 4; i++) {
+        const rx = 100 + i * 110 + Math.sin(t + i) * 15;
+        const ry = 85 + i * 90 + Math.cos(t + i) * 12;
+        x.beginPath();
+        x.ellipse(cx, cy, rx, ry, t * 0.2 + i * 0.4, 0, Math.PI * 2);
+        x.strokeStyle = `rgba(201,168,76,${Math.max(0.035 - i * 0.007, 0.008)})`;
+        x.lineWidth = 0.6;
+        x.stroke();
       }
-
-      // Particles
-      particles.forEach(p => {
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < -10) p.x = W + 10;
-        if (p.x > W + 10) p.x = -10;
-        if (p.y < -10) p.y = H + 10;
-        if (p.y > H + 10) p.y = -10;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(201,168,76,${p.a})`;
-        ctx.fill();
-      });
-
-      t++;
       requestAnimationFrame(draw);
     }
-
-    window.addEventListener('resize', resize);
+    addEventListener('resize', resize);
     resize();
     draw();
   </script>
