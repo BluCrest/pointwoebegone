@@ -276,7 +276,7 @@
 
         <p>Most vulnerabilities aren't clever. They're <em>assumptions</em>. The assumption that a user will only click the buttons you put in front of them. The assumption that if an API works one way, it'll always work that way. The assumption that nobody's watching the traffic between your app and its server.</p>
 
-        <p>When I was looking at trading platforms — the kind that handle real money in real time — the assumptions were staggering. Authentication flows that could be bypassed by changing a URL parameter. API keys embedded in client-side JavaScript. Rate limits that could be sidestepped by rotating headers. These weren't exotic zero-days. They were basic mistakes, hiding in plain sight.</p>
+        <p>The assumptions were staggering. Authentication flows that could be bypassed by changing a URL parameter. API keys embedded in client-side JavaScript. Rate limits that could be sidestepped by rotating headers. These weren't exotic zero-days. They were basic mistakes, hiding in plain sight.</p>
 
         <blockquote>
             <p>Security isn't a feature you bolt on. It's a way of thinking that has to be there from the first line of code.</p>
@@ -297,13 +297,11 @@
 
         <p>These aren't security questions. They're <em>design</em> questions. And they make the product better for everyone, not just the people trying to break it.</p>
 
-        <h2>The GMGN lesson</h2>
+        <h2>The pattern everywhere</h2>
 
-        <p>One of the most instructive experiences was looking at GMGN — a trading analytics platform. On the surface, it was a tool for tracking smart money movements. Underneath, it was a masterclass in what happens when growth outruns security.</p>
+        <p>The more platforms I examined, the more the same patterns appeared. APIs left wide open. Authentication tokens leaked through predictable endpoints. User data accessible through paths that shouldn't have been public. Rate limiting trivially bypassed. None of it was sophisticated — it was just <em>neglected</em>.</p>
 
-        <p>The API was wide open. Authentication tokens leaked through predictable endpoints. User data was accessible through endpoints that shouldn't have been public. The rate limiting was trivially bypassed. None of this was sophisticated — it was just <em>neglected</em>.</p>
-
-        <p>The lesson wasn't "GMGN is bad." The lesson was "this is what happens when you scale fast and assume nobody's looking." And in my experience, someone is always looking.</p>
+        <p>The lesson was always the same: this is what happens when you scale fast and assume nobody's looking. And in my experience, someone is always looking.</p>
 
         <h2>Building WoeShield</h2>
 
