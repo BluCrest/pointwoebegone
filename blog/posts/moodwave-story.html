@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Radar Dots to Audio Waves — Point Woebegone</title>
+    <meta name="description" content="How a radar engineer's eye for patterns became a music app that sees sound differently.">
+    <meta property="og:title" content="From Radar Dots to Audio Waves">
+    <meta property="og:description" content="How a radar engineer's eye for patterns became a music app that sees sound differently.">
+    <meta property="og:type" content="article">
+    <link rel="canonical" href="https://pointwoebegone.com/blog/posts/moodwave-story">
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --ink: #1a1714;
+            --paper: #f6f1eb;
+            --paper-warm: #efe8df;
+            --gold: #b8941f;
+            --gold-dim: #8a6e16;
+            --rule: rgba(26, 23, 20, 0.12);
+            --rule-strong: rgba(26, 23, 20, 0.25);
+            --muted: #6b6560;
+            --serif: 'Newsreader', 'Georgia', serif;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 200px;
+        }
+
+        .article-header {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+            margin-bottom: 3rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover { color: var(--gold); }
+
+        .article-category {
+            font-family: var(--sans);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -0.015em;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-subtitle {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--muted);
+            max-width: 480px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .article-meta .dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--rule-strong);
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .article-body {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        .article-body p {
+            font-family: var(--serif);
+            font-size: 1.08rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--ink);
+        }
+
+        .article-body p:first-of-type::first-letter {
+            font-size: 3.5rem;
+            float: left;
+            line-height: 0.8;
+            padding: 0.1em 0.12em 0 0;
+            font-weight: 400;
+            color: var(--gold);
+        }
+
+        .article-body h2 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 3rem 0 1.25rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--rule);
+        }
+
+        .article-body blockquote {
+            border-left: 2px solid var(--gold);
+            padding: 0.25rem 0 0.25rem 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .article-body blockquote p {
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-body strong { font-weight: 500; }
+
+        .end-mark {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--gold);
+            font-size: 1.5rem;
+            opacity: 0.4;
+        }
+
+        .article-nav {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-top: 1px solid var(--rule);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .article-nav a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .article-nav a:hover { color: var(--gold); }
+
+        .footer {
+            border-top: 1px solid var(--rule);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand em { font-style: italic; color: var(--gold); }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-copy { font-size: 0.7rem; color: var(--muted); }
+
+        @media (max-width: 700px) {
+            .article-header { padding: 3rem 1.5rem 2rem; }
+            .article-body { padding: 2rem 1.5rem 3rem; }
+            .article-nav { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="article-header">
+        <a href="/blog" class="back-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to Field Notes
+        </a>
+        <p class="article-category">Origin Story</p>
+        <h1 class="article-title">From Radar Dots to Audio Waves</h1>
+        <p class="article-subtitle">How a radar engineer's eye for patterns became a music app that sees sound differently.</p>
+        <div class="article-meta">
+            <span>May 2026</span>
+            <span class="dot"></span>
+            <span>6 min read</span>
+        </div>
+    </header>
+
+    <article class="article-body">
+        <p>Before Moodwave, there were radar dots. Hundreds of them, blinking on a screen in a dark room, each one representing something moving through space — a plane, a bird, noise. My job was to tell the difference. To find the signal in the static. It turns out, that's all Moodwave really does too.</p>
+
+        <p>I spent years as a radar systems engineer, staring at displays that most people would find impossibly boring. But there's a beauty in patterns when you learn to read them. A plane has a signature. Weather has a rhythm. Even noise has a texture if you look long enough. The problem was never a lack of information — it was a lack of attention.</p>
+
+        <h2>The bridge between ears and eyes</h2>
+
+        <p>Music, I realized, has the same problem. We listen to it every day, but how often do we actually <em>hear</em> it? We skip tracks, shuffle playlists, treat songs like disposable content. But underneath every track is a structure — tempo, energy, mood, texture — that most of us never see.</p>
+
+        <p>Radar taught me to visualize the invisible. I wanted to do the same thing for music. Not to analyze it to death, but to make it <em>visible</em> in a way that deepens the experience. That's the bridge: from dots on a screen to waves in your ears.</p>
+
+        <blockquote>
+            <p>The best tools don't replace your senses — they extend them. A microscope doesn't replace your eyes. It gives you new ones.</p>
+        </blockquote>
+
+        <h2>What Moodwave actually does</h2>
+
+        <p>Moodwave connects to your music library and does something deceptively simple: it <em>sees</em> your music. It analyzes audio features — energy, tempo, valence, danceability — and transforms them into visual patterns that respond in real time. It's like having a radar display for your playlist.</p>
+
+        <p>But here's the thing: we're not trying to reduce music to data. We're trying to make the data <em>emotional</em>. When you see a visualization that matches how a song makes you feel, something clicks. You notice things you never noticed before. That quiet bridge at 2:14. The way the bass drops out before the chorus. The almost imperceptible shift in tone that makes a song feel melancholy.</p>
+
+        <h2>The ordinary art of noticing</h2>
+
+        <p>This is really what it's about. Noticing. In radar, noticing saves lives. In music, noticing saves something else — your connection to the art you love. We live in an age of infinite content and shrinking attention. The apps that survive will be the ones that help us pay attention, not the ones that help us scroll faster.</p>
+
+        <p>Moodwave is small. It's $4.99, one-time, no account needed. It doesn't try to be a social network or a streaming service or a recommendation engine. It's just a lens. A way to see what was always there.</p>
+
+        <p>The radar dots taught me that. Every blip on the screen was ordinary. But when you learned to read them — when you gave them your full attention — they told you everything you needed to know.</p>
+
+        <p>Music is the same way. It's all ordinary, until you look closer.</p>
+
+        <div class="end-mark">◆</div>
+    </article>
+
+    <nav class="article-nav">
+        <a href="/blog/posts/attention-economy">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Previous
+        </a>
+        <a href="/blog/posts/lifetime-product">
+            Next
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-left: 4px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+    </nav>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <p class="footer-brand">Point <em>Woebegone</em></p>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/blog">Field Notes</a>
+                <a href="https://x.com/heisunordinary">X / Twitter</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Point Woebegone. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
