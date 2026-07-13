@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive — Field Notes — Point Woebegone</title>
+    <meta name="description" content="All posts from Field Notes — product thinking, security research, and the ordinary art of paying attention.">
+    <link rel="canonical" href="https://pointwoebegone.com/blog/archive">
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --ink: #1a1714; --paper: #f6f1eb; --paper-warm: #efe8df; --gold: #b8941f; --gold-dim: #8a6e16; --rule: rgba(26, 23, 20, 0.12); --rule-strong: rgba(26, 23, 20, 0.25); --muted: #6b6560; --serif: 'Newsreader', 'Georgia', serif; --sans: 'DM Sans', -apple-system, sans-serif; }
+        body { font-family: var(--sans); background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; }
+        body::before { content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px; }
+        .archive-header { max-width: 700px; margin: 0 auto; padding: 4rem 2rem 3rem; text-align: center; border-bottom: 1px solid var(--rule); }
+        .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; color: var(--muted); margin-bottom: 3rem; transition: color 0.3s; }
+        .back-link:hover { color: var(--gold); }
+        .archive-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; line-height: 1.15; margin-bottom: 0.5rem; }
+        .archive-title em { font-style: italic; color: var(--gold); }
+        .archive-subtitle { font-family: var(--serif); font-size: 1.05rem; font-weight: 300; font-style: italic; color: var(--muted); }
+        .archive-list { max-width: 700px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+        .archive-year { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); color: var(--gold-dim); }
+        .archive-item { display: flex; justify-content: space-between; align-items: baseline; padding: 1rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; color: inherit; transition: background 0.3s; gap: 1rem; }
+        .archive-item:hover { background: var(--paper-warm); margin: 0 -1rem; padding: 1rem; }
+        .archive-item-left { flex: 1; }
+        .archive-item-cat { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem; }
+        .archive-item-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; line-height: 1.3; }
+        .archive-item-excerpt { font-family: var(--serif); font-size: 0.9rem; font-weight: 300; color: var(--muted); margin-top: 0.3rem; line-height: 1.5; }
+        .archive-item-meta { font-size: 0.72rem; color: var(--muted); white-space: nowrap; text-align: right; }
+        .archive-item-meta .dot { display: inline-block; width: 3px; height: 3px; border-radius: 50%; background: var(--rule-strong); margin: 0 0.4rem; vertical-align: middle; }
+        .newsletter-box { max-width: 640px; margin: 0 auto 3rem; padding: 2rem; background: var(--paper-warm); border: 1px solid var(--rule); text-align: center; }
+        .newsletter-box h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; }
+        .newsletter-box p { font-family: var(--serif); font-size: 0.95rem; font-weight: 300; color: var(--muted); margin-bottom: 1.25rem; }
+        .newsletter-form { display: flex; gap: 0; max-width: 400px; margin: 0 auto; }
+        .newsletter-input { flex: 1; padding: 0.7rem 1rem; border: 1px solid var(--rule); background: var(--paper); font-family: var(--sans); font-size: 0.85rem; color: var(--ink); outline: none; transition: border-color 0.3s; }
+        .newsletter-input:focus { border-color: var(--gold); }
+        .newsletter-input::placeholder { color: var(--muted); }
+        .newsletter-btn { padding: 0.7rem 1.5rem; background: var(--ink); color: var(--paper); border: none; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
+        .newsletter-btn:hover { background: var(--gold); }
+        .footer { border-top: 1px solid var(--rule); padding: 2.5rem 2rem; text-align: center; }
+        .footer-brand { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 0.75rem; }
+        .footer-brand em { font-style: italic; color: var(--gold); }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
+        .footer-links a { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--muted); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-copy { font-size: 0.7rem; color: var(--muted); }
+        @media (max-width: 700px) { .archive-item { flex-direction: column; gap: 0.25rem; } .archive-item-meta { text-align: left; } .newsletter-form { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <header class="archive-header">
+        <a href="/blog" class="back-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to Field Notes
+        </a>
+        <h1 class="archive-title">Field <em>Notes</em> Archive</h1>
+        <p class="archive-subtitle">Every entry, in chronological order.</p>
+    </header>
+    <div class="archive-list">
+        <h2 class="archive-year">2026</h2>
+        <a href="/blog/posts/spotify-audio-features-alternative" class="archive-item">
+            <div class="archive-item-left">
+                <p class="archive-item-cat">Research</p>
+                <h3 class="archive-item-title">Spotify Killed Its Audio Features API. Heres What Replaced It.</h3>
+                <p class="archive-item-excerpt">A comprehensive guide to audio analysis alternatives after the shutdown.</p>
+            </div>
+            <div class="archive-item-meta">Jul 2026<span class="dot"></span>10 min</div>
+        </a>
+        <a href="/blog/posts/lifetime-product" class="archive-item">
+            <div class="archive-item-left">
+                <p class="archive-item-cat">Product</p>
+                <h3 class="archive-item-title">The $4.99 Bet: Why Were Building a Lifetime Product</h3>
+                <p class="archive-item-excerpt">In a world of subscriptions that quietly drain, we chose a different path.</p>
+            </div>
+            <div class="archive-item-meta">Jun 2026<span class="dot"></span>7 min</div>
+        </a>
+        <a href="/blog/posts/moodwave-story" class="archive-item">
+            <div class="archive-item-left">
+                <p class="archive-item-cat">Origin Story</p>
+                <h3 class="archive-item-title">From Radar Dots to Audio Waves</h3>
+                <p class="archive-item-excerpt">How a radar engineers eye for patterns became a music app.</p>
+            </div>
+            <div class="archive-item-meta">May 2026<span class="dot"></span>6 min</div>
+        </a>
+        <a href="/blog/posts/security-research" class="archive-item">
+            <div class="archive-item-left">
+                <p class="archive-item-cat">Research</p>
+                <h3 class="archive-item-title">What the Bugs Taught Me</h3>
+                <p class="archive-item-excerpt">Months of security research taught us more about building software than any tutorial.</p>
+            </div>
+            <div class="archive-item-meta">Apr 2026<span class="dot"></span>9 min</div>
+        </a>
+        <a href="/blog/posts/attention-economy" class="archive-item">
+            <div class="archive-item-left">
+                <p class="archive-item-cat">Philosophy</p>
+                <h3 class="archive-item-title">The Ordinary Art of Noticing</h3>
+                <p class="archive-item-excerpt">Attention is the rarest thing we have. Every product either hoards it or respects it.</p>
+            </div>
+            <div class="archive-item-meta">Mar 2026<span class="dot"></span>5 min</div>
+        </a>
+    </div>
+    <div class="newsletter-box">
+        <h3>Stay in the loop</h3>
+        <p>New Field Notes posts, delivered to your inbox. No spam. Unsubscribe anytime.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed'; this.querySelector('input').disabled=true;">
+            <input type="email" class="newsletter-input" placeholder="your@email.com" required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+    </div>
+    <footer class="footer">
+        <p class="footer-brand">Point <em>Woebegone</em></p>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/blog">Field Notes</a>
+            <a href="https://x.com/heisunordinary">X / Twitter</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Point Woebegone. All rights reserved.</p>
+    </footer>
+</body>
+</html>
