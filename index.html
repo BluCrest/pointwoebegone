@@ -154,10 +154,10 @@
     "url": "https://moodwave.pointwoebegone.com",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "Web Browser",
-    "description": "Music mood intelligence tool. Reads your Spotify library, analyses audio features — energy, valence, tempo, danceability — and classifies every track into 61 moods using music theory. Camelot Wheel harmonic matching, BPM flow optimization, adaptive energy arcs. Zero data stored.",
+    "description": "Music mood intelligence tool. Reads your Spotify library, analyses audio features — energy, valence, tempo, danceability — and classifies every track into 68 moods using music theory. Camelot Wheel harmonic matching, BPM flow optimization, adaptive energy arcs. Zero data stored. Free forever.",
     "offers": {
       "@type": "Offer",
-      "price": "4.99",
+      "price": "0",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock"
     },
@@ -218,7 +218,7 @@
         "name": "What is Moodwave?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Moodwave is a music mood intelligence tool. It reads your Spotify library, analyses every track's audio features — energy, valence, tempo, danceability, acousticness — and classifies them into 61 moods using music theory. Camelot Wheel harmonic matching, BPM flow optimization, adaptive energy arcs. $4.99 one-time. Zero data stored."
+          "text": "Moodwave is a music mood intelligence tool. It reads your Spotify library, analyses every track's audio features — energy, valence, tempo, danceability, acousticness — and classifies them into 68 moods using music theory. Camelot Wheel harmonic matching, BPM flow optimization, adaptive energy arcs. Free forever. Zero data stored."
         }
       },
       {
@@ -226,7 +226,7 @@
         "name": "Does Moodwave use AI?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Moodwave uses rule-based music intelligence — audio feature analysis, music theory (Camelot Wheel, BPM transitions), and multi-signal statistical scoring. No machine learning. No AI models. Pure math and music theory."
+          "text": "Moodwave runs on rule-based music intelligence — audio feature analysis, music theory (Camelot Wheel, BPM transitions), and multi-signal statistical scoring — with a free AI assist that refines low-confidence tags within a small daily limit. Your library stays yours throughout."
         }
       },
       {
@@ -250,7 +250,7 @@
         "name": "How much does Moodwave cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Moodwave costs $4.99 one-time. No subscription. No recurring fees. Limited to 200 lifetime spots. Pay once and use it forever."
+          "text": "Moodwave is free forever. No subscription, no card, no catch. A small daily limit on AI-assisted tagging keeps the free service sustainable for everyone."
         }
       },
       {
@@ -282,7 +282,7 @@
         "name": "What is the best Spotify mood playlist generator?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Moodwave by Point Woebegone is a music mood intelligence tool that reads your Spotify library and classifies every track into 61 moods using audio feature analysis and music theory. Camelot Wheel harmonic matching, BPM flow optimization, adaptive energy arcs. $4.99 one-time, zero data stored."
+          "text": "Moodwave by Point Woebegone is a music mood intelligence tool that reads your Spotify library and classifies every track into 68 moods using audio feature analysis and music theory. Camelot Wheel harmonic matching, BPM flow optimization, adaptive energy arcs. Free forever, zero data stored."
         }
       },
       {
@@ -307,666 +307,447 @@
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 60px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
     img { max-width: 100%; height: auto; }
 
     :root {
-      --gold: #C9A84C;
-      --gold-soft: rgba(201,168,76,0.08);
-      --black: #050505;
-      --white: #FAFAF8;
-      --gray-100: #E8E0D0;
-      --gray-200: #B0A890;
-      --gray-300: #706858;
-      --gray-400: #403828;
-      --border: rgba(201,168,76,0.08);
-      --border-strong: rgba(201,168,76,0.15);
+      --paper: #ffffff;
+      --ink: #0c1116;
+      --ink-soft: #3d4750;
+      --ink-faint: #6d7880;
+      --cyan: #00a9ce;
+      --cyan-deep: #00748f;
+      --cyan-wash: #e6f7fb;
+      --line: #e2e8ec;
       --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --serif: 'Playfair Display', Georgia, serif;
     }
 
     body {
-      background: var(--black);
-      color: var(--gray-100);
+      background: var(--paper);
+      color: var(--ink);
       font-family: var(--sans);
-      font-weight: 300;
-      line-height: 1.6;
+      font-weight: 400;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    ::selection { background: var(--gold); color: var(--black); }
+    ::selection { background: var(--cyan); color: #fff; }
 
-    /* NOISE */
-    body::after {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.018;
+    /* Turning compass backdrop: top-right, medium visible, slow */
+    .compass {
+      position: fixed;
+      top: -160px;
+      right: -160px;
+      width: 620px;
+      height: 620px;
+      z-index: 0;
       pointer-events: none;
-      z-index: 10000;
+      opacity: 0.13;
+      animation: spin 140s linear infinite;
     }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .compass { animation: none; } }
 
-    /* CANVAS */
-    #bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
 
-    /* NAV */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 0 clamp(24px, 5vw, 60px);
-      height: 60px;
-      background: rgba(5,5,5,0.5);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-brand {
-      font-family: var(--sans);
-      font-size: 14px; font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--white);
-    }
-    .nav-brand span { color: var(--gold); }
-
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a {
-      font-size: 12px; font-weight: 400;
-      letter-spacing: 0.08em;
-      color: var(--gray-300);
-      text-decoration: none;
+    .topband {
+      background: var(--ink);
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover { color: var(--white); }
-
-    /* HERO */
-    .hero {
-      position: relative; z-index: 2;
-      min-height: 100svh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
       text-align: center;
-      padding: 120px 24px 80px;
-    }
-
-    .hero-label {
-      font-size: 11px; font-weight: 400;
-      letter-spacing: 0.3em;
-      color: var(--gray-300);
-      text-transform: uppercase;
-      margin-bottom: 40px;
-      opacity: 0; animation: up 0.8s ease 0.2s forwards;
-    }
-
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(44px, 9vw, 96px);
-      font-weight: 400;
-      line-height: 1.05;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      margin-bottom: 28px;
-      opacity: 0; animation: up 0.8s ease 0.4s forwards;
-    }
-    .hero-title em { font-style: italic; color: var(--gold); }
-
-    .hero-line {
-      width: 40px; height: 1px;
-      background: var(--gold);
-      margin: 0 auto 28px;
-      opacity: 0; animation: up 0.8s ease 0.55s forwards;
-    }
-
-    .hero-sub {
-      font-size: clamp(16px, 2vw, 20px);
-      font-weight: 300;
-      color: var(--gray-200);
-      line-height: 1.7;
-      max-width: 480px;
-      margin: 0 auto 56px;
-      opacity: 0; animation: up 0.8s ease 0.65s forwards;
-    }
-
-    .hero-cta {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 12px; font-weight: 500;
-      letter-spacing: 0.12em;
-      color: var(--black);
-      background: var(--gold);
-      padding: 14px 32px;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: all 0.3s;
-      opacity: 0; animation: up 0.8s ease 0.8s forwards;
-    }
-    .hero-cta:hover { background: #E8D48B; gap: 14px; }
-
-    @keyframes up {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* REVEAL */
-    .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: 0.1s; }
-    .d2 { transition-delay: 0.2s; }
-    .d3 { transition-delay: 0.3s; }
-
-    /* SECTION */
-    .section {
-      position: relative; z-index: 2;
-      max-width: 1080px; margin: 0 auto;
-      padding: 120px clamp(24px, 5vw, 60px);
-    }
-
-    .section-label {
-      font-size: 10px; font-weight: 400;
-      letter-spacing: 0.35em;
-      color: var(--gray-300);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(28px, 5vw, 44px);
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-    .section-title em { color: var(--gold); font-style: italic; }
-
-    .section-desc {
-      font-size: 15px; color: var(--gray-200);
-      line-height: 1.75; max-width: 520px;
-    }
-
-    /* DIVIDER */
-    .divider {
-      max-width: 1080px; margin: 0 auto;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* PILLARS */
-    .pillars {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 56px;
-    }
-
-    .pillar {
-      background: var(--black);
-      padding: 44px 32px;
+      padding: 11px 16px;
       position: relative;
-      transition: background 0.4s;
+      z-index: 1;
     }
-    .pillar::after {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 1px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
-    }
-    .pillar:hover { background: var(--gold-soft); }
-    .pillar:hover::after { transform: scaleX(1); }
+    .topband b { color: var(--cyan); }
 
-    .pillar-num {
-      font-size: 10px; font-weight: 400;
-      letter-spacing: 0.25em;
-      color: var(--gray-400);
-      margin-bottom: 24px;
-    }
-
-    .pillar-name {
-      font-family: var(--serif);
-      font-size: 24px; color: var(--white);
-      margin-bottom: 16px;
-    }
-
-    .pillar-text {
-      font-size: 14px; color: var(--gray-200);
-      line-height: 1.75;
-    }
-
-    /* PRODUCT */
-    .product {
-      border: 1px solid var(--border);
-      background: rgba(10,10,10,0.6);
-      padding: 56px;
-      margin-top: 56px;
-      position: relative;
-      transition: border-color 0.4s;
-    }
-    .product:hover { border-color: var(--border-strong); }
-
-    .product-header {
-      display: flex; align-items: flex-start;
+    nav {
+      display: flex;
       justify-content: space-between;
-      gap: 24px; margin-bottom: 32px;
-      flex-wrap: wrap;
+      align-items: center;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
     }
-
-    .product-name {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4vw, 40px);
-      color: var(--white); line-height: 1.1;
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    .brand .t { font-weight: 800; font-size: 18px; line-height: 1.1; }
+    .brand .t small { display: block; font-size: 10px; font-weight: 400; letter-spacing: 0.3em; color: var(--ink-faint); }
+    nav .links a { color: var(--ink-soft); text-decoration: none; margin-left: 26px; font-size: 14px; font-weight: 600; }
+    nav .links a:hover { color: var(--cyan-deep); }
+    nav .links a.cta {
+      background: var(--ink);
+      color: #fff;
+      padding: 12px 26px;
+      border-radius: 8px;
     }
-    .product-name em { color: var(--gold); font-style: italic; }
+    nav .links a.cta:hover { background: var(--cyan-deep); }
 
-    .product-byline {
-      font-size: 11px; font-weight: 400;
+    .hero { padding: 84px 0 60px; max-width: 860px; }
+    .hero .k {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cyan-deep);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+      line-height: 1.06;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    h1 em { font-family: var(--serif); font-weight: 400; color: var(--cyan-deep); }
+    .hero p.lede { margin-top: 24px; font-size: 1.18rem; color: var(--ink-soft); max-width: 62ch; }
+    .hero .ctas { margin-top: 34px; display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 15px 34px;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    .btn:hover { background: var(--cyan-deep); }
+    .btn.ghost { background: #fff; color: var(--ink); border: 1.5px solid var(--ink); }
+    .btn.ghost:hover { border-color: var(--cyan-deep); color: var(--cyan-deep); background: var(--cyan-wash); }
+    .hero .note { margin-top: 22px; font-size: 14px; color: var(--ink-faint); }
+
+    .certbar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 70px;
+      background: #fff;
+    }
+    .certbar div { padding: 28px 20px; text-align: center; border-left: 1px solid var(--line); }
+    .certbar div:first-child { border-left: none; }
+    .certbar .mark { font-size: 24px; color: var(--cyan-deep); font-weight: 800; }
+    .certbar b { display: block; font-size: 1.6rem; margin-top: 6px; }
+    .certbar span { font-size: 12px; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    section.block { padding-bottom: 70px; }
+    .k {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cyan-deep);
+      margin-bottom: 8px;
+    }
+    h2.sec { font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.01em; margin-bottom: 12px; }
+    p.sub { color: var(--ink-soft); max-width: 66ch; margin-bottom: 28px; }
+
+    .lane-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .lane { border: 1px solid var(--line); border-radius: 14px; padding: 34px 30px; background: #fff; }
+    .lane.live { border: 2px solid var(--ink); }
+    .lane .who {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan-deep);
+      margin-bottom: 10px;
+    }
+    .lane h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    .lane p { color: var(--ink-soft); font-size: 0.97rem; margin-bottom: 18px; }
+    .stamp {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--cyan-deep);
+      color: var(--cyan-deep);
+      border-radius: 4px;
+      padding: 5px 12px;
+      margin-bottom: 18px;
+    }
+    .lane a.more { font-weight: 700; color: var(--ink); }
+    .lane a.more:hover { color: var(--cyan-deep); }
+
+    .how { background: var(--cyan-wash); border-radius: 18px; padding: 56px 48px; }
+    .how h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 8px; }
+    .how > p { color: var(--ink-soft); margin-bottom: 30px; max-width: 64ch; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .steps div b {
+      display: block;
+      font-size: 13px;
       letter-spacing: 0.15em;
-      color: var(--gray-300);
       text-transform: uppercase;
-      margin-top: 8px;
+      color: var(--cyan-deep);
+      margin-bottom: 8px;
     }
+    .steps div p { font-size: 0.93rem; color: var(--ink-soft); }
 
-    .product-link {
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      text-decoration: none;
-      text-transform: uppercase;
-      display: inline-flex; align-items: center; gap: 6px;
-      transition: gap 0.3s;
-      flex-shrink: 0;
-    }
-    .product-link:hover { gap: 10px; }
-
-    .product-desc {
-      font-size: 15px; color: var(--gray-200);
-      line-height: 1.8; max-width: 580px;
-      margin-bottom: 32px;
-    }
-
-    .product-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .product-cell {
-      background: var(--black);
-      padding: 20px;
-      transition: background 0.3s;
-    }
-    .product-cell:hover { background: var(--gold-soft); }
-
-    .product-cell-label {
-      font-size: 9px; font-weight: 400;
+    .name-band { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .name-band h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 12px; }
+    .name-band p { color: var(--ink-soft); margin-bottom: 16px; }
+    .name-band p b { color: var(--ink); }
+    .layers { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    .layers div { padding: 22px 26px; border-bottom: 1px solid var(--line); }
+    .layers div:last-child { border-bottom: none; background: var(--ink); color: #fff; }
+    .layers .ln {
+      font-size: 11px;
+      font-weight: 800;
       letter-spacing: 0.2em;
-      color: var(--gray-400);
       text-transform: uppercase;
-      margin-bottom: 6px;
+      color: var(--cyan-deep);
+      margin-bottom: 4px;
     }
+    .layers div:last-child .ln { color: var(--cyan); }
+    .layers h3 { font-size: 1.2rem; margin-bottom: 4px; }
+    .layers p { font-size: 0.92rem; color: var(--ink-soft); }
+    .layers div:last-child p { color: #c3ccd2; }
 
-    .product-cell-name {
-      font-size: 12px; font-weight: 400;
-      color: var(--gray-100);
-    }
+    .miles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .miles div { border-top: 3px solid var(--cyan); padding-top: 18px; }
+    .miles b { font-size: 1.1rem; display: block; margin-bottom: 6px; }
+    .miles p { font-size: 0.93rem; color: var(--ink-soft); }
 
-    /* QUOTE */
-    .quote-section {
-      position: relative; z-index: 2;
-      padding: 120px clamp(24px, 5vw, 60px);
-      text-align: center;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .quote-text {
-      font-family: var(--serif);
-      font-size: clamp(20px, 4vw, 34px);
-      font-weight: 400; font-style: italic;
-      color: var(--gray-100);
-      line-height: 1.65;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .quote-text em { color: var(--gold); font-style: italic; }
-
-    .quote-attr {
-      margin-top: 28px;
-      font-size: 10px; font-weight: 400;
-      letter-spacing: 0.25em;
-      color: var(--gray-400);
-      text-transform: uppercase;
-    }
-
-    /* FAQ */
-    .faq-section {
-      position: relative; z-index: 2;
-      max-width: 720px; margin: 0 auto;
-      padding: 120px clamp(24px, 5vw, 60px);
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 28px 0;
-    }
-
-    .faq-q {
-      font-family: var(--serif);
-      font-size: 18px; color: var(--white);
-      cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .faq-q::after {
-      content: '+';
-      font-size: 20px; color: var(--gray-300);
-      transition: transform 0.3s;
-    }
-    .faq-item.open .faq-q::after { transform: rotate(45deg); }
-
-    .faq-a {
-      font-size: 14px; color: var(--gray-200);
-      line-height: 1.75; max-height: 0;
-      overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
-    }
-    .faq-item.open .faq-a { max-height: 200px; padding-top: 16px; }
-
-    /* FOOTER */
-    .footer {
-      position: relative; z-index: 2;
-      padding: 40px clamp(24px, 5vw, 60px);
-      display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap; gap: 16px;
-    }
-
-    .footer-brand {
-      font-size: 12px; font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--gray-300);
-    }
-    .footer-brand span { color: var(--gold); }
-
-    .footer-copy {
-      font-size: 10px; color: var(--gray-400);
-      margin-top: 4px;
-    }
-
-    .footer-links { display: flex; gap: 28px; }
-    .footer-links a {
-      font-size: 11px; font-weight: 400;
-      letter-spacing: 0.08em;
-      color: var(--gray-400);
+    .lib a {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
       text-decoration: none;
-      text-transform: uppercase;
-      transition: color 0.3s;
+      font-weight: 600;
+      font-size: 1.1rem;
     }
-    .footer-links a:hover { color: var(--gold); }
+    .lib a:first-of-type { border-top: 1px solid var(--line); margin-top: 24px; }
+    .lib a:hover { color: var(--cyan-deep); }
+    .lib small { font-weight: 400; font-size: 12px; color: var(--ink-faint); white-space: nowrap; }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .pillars { grid-template-columns: 1fr; }
-      .product { padding: 32px 20px; }
-      .product-grid { grid-template-columns: 1fr; }
-      .footer { flex-direction: column; align-items: flex-start; }
+    .contact {
+      background: var(--ink);
+      color: #fff;
+      border-radius: 18px;
+      padding: 60px 48px;
+      text-align: center;
+    }
+    .contact h2 { font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 800; margin-bottom: 12px; }
+    .contact h2 em { font-family: var(--serif); font-weight: 400; color: var(--cyan); }
+    .contact p { color: #aeb8c0; max-width: 56ch; margin: 0 auto 30px; }
+    .contact a.btn-w { display: inline-block; background: var(--cyan); color: #062b33; font-weight: 800; text-decoration: none; padding: 15px 40px; border-radius: 10px; }
+    .contact a.btn-w:hover { background: #fff; }
+    .contact .alt { margin-top: 20px; font-size: 14px; color: #aeb8c0; }
+    .contact .alt a { color: #fff; }
+
+    footer {
+      padding: 30px 0 60px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink-faint);
+    }
+    footer a { color: var(--ink-soft); font-weight: 600; }
+
+    @media (max-width: 800px) {
+      .compass { width: 420px; height: 420px; top: -110px; right: -110px; }
+      .certbar { grid-template-columns: 1fr 1fr; }
+      .lane-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .name-band { grid-template-columns: 1fr; }
+      .miles { grid-template-columns: 1fr; }
+      nav .links a { margin-left: 16px; }
+      nav .links a:not(.cta) { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <canvas id="bg"></canvas>
+  <!-- Turning compass backdrop -->
+  <svg class="compass" viewBox="0 0 200 200" aria-hidden="true">
+    <g fill="none" stroke="#00748f" stroke-width="0.8">
+      <circle cx="100" cy="100" r="96" />
+      <circle cx="100" cy="100" r="72" />
+      <circle cx="100" cy="100" r="46" />
+      <g id="ticks">
+        <line x1="100" y1="4" x2="100" y2="14" />
+        <line x1="100" y1="186" x2="100" y2="196" />
+        <line x1="4" y1="100" x2="14" y2="100" />
+        <line x1="186" y1="100" x2="196" y2="100" />
+        <line x1="32" y1="32" x2="39" y2="39" />
+        <line x1="161" y1="39" x2="168" y2="32" />
+        <line x1="32" y1="168" x2="39" y2="161" />
+        <line x1="161" y1="161" x2="168" y2="168" />
+      </g>
+      <polygon points="100,28 106,100 100,172 94,100" fill="#00748f" fill-opacity="0.35" stroke="none" />
+      <polygon points="28,100 100,94 172,100 100,106" fill="#00748f" fill-opacity="0.35" stroke="none" />
+      <polygon points="100,54 104,100 100,146 96,100" fill="#00748f" fill-opacity="0.55" stroke="none" />
+      <polygon points="54,100 100,96 146,100 100,104" fill="#00748f" fill-opacity="0.55" stroke="none" />
+      <circle cx="100" cy="100" r="7" fill="#00748f" fill-opacity="0.6" stroke="none" />
+    </g>
+    <g font-family="Georgia, serif" font-size="13" fill="#00748f" text-anchor="middle">
+      <text x="100" y="26">N</text>
+      <text x="100" y="182">S</text>
+      <text x="20" y="104">W</text>
+      <text x="180" y="104">E</text>
+    </g>
+  </svg>
 
-  <!-- NAV -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-brand">Point <span>Woebegone</span></div>
-    <ul class="nav-links">
-      <li><a href="#philosophy">Philosophy</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="/blog">Field Notes</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="https://x.com/pointwoebegone" target="_blank" rel="noopener">X</a></li>
-    </ul>
-  </nav>
+  <div class="topband">Woebegone-verified: <b>2 products held to the standard</b> · 0 exceptions granted</div>
 
-  <!-- HERO -->
-  <header class="hero" role="banner">
-    <div class="hero-label">Founded 2026 &middot; Building in public</div>
-    <h1 class="hero-title">Point <em>Woe</em>begone</h1>
-    <div class="hero-line"></div>
-    <p class="hero-sub">The trust layer between humanity and the technology we depend on. Where AI meets crypto. Where privacy meets proof.</p>
-    <a href="#products" class="hero-cta">Explore our work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-  </header>
-
-  <!-- PHILOSOPHY -->
-  <div class="divider"></div>
-  <section class="section" id="philosophy" aria-labelledby="philosophy-title">
-    <div class="section-label reveal">The Foundation</div>
-    <h2 class="section-title reveal" id="philosophy-title">Three pillars.<br>One mission.</h2>
-    <p class="section-desc reveal">Every product we build is rooted in the same conviction: the future of the internet depends on getting these three things right.</p>
-
-    <div class="pillars" role="list">
-      <div class="pillar reveal d1" role="listitem">
-        <div class="pillar-num">01</div>
-        <h3 class="pillar-name">Privacy</h3>
-        <p class="pillar-text">Financial privacy is a human right. We build tools that give it back &mdash; without compromising security or enabling harm. Your data is yours.</p>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">
+        <img src="/apple-touch-icon.png" alt="Point Woebegone compass logo" width="42" height="42" />
+        <span class="t">Point Woebegone<small>Est. 2026</small></span>
+      </a>
+      <div class="links">
+        <a href="#who">Who it serves</a>
+        <a href="#standard">The standard</a>
+        <a href="#name">The name</a>
+        <a href="#library">Library</a>
+        <a href="mailto:pointwoebegone@gmail.com" class="cta">Talk to us</a>
       </div>
-      <div class="pillar reveal d2" role="listitem">
-        <div class="pillar-num">02</div>
-        <h3 class="pillar-name">Security</h3>
-        <p class="pillar-text">AI-powered threat intelligence, built for the real world. Updated as new attack vectors emerge. Proactive, not reactive.</p>
-      </div>
-      <div class="pillar reveal d3" role="listitem">
-        <div class="pillar-num">03</div>
-        <h3 class="pillar-name">Trust</h3>
-        <p class="pillar-text">We don't ask you to trust us. We build systems that make trust verifiable, auditable, and earned &mdash; not assumed.</p>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- PRODUCTS -->
-  <div class="divider"></div>
-  <section class="section" id="products" aria-labelledby="products-title">
-    <div class="section-label reveal">Products</div>
-    <h2 class="section-title reveal" id="products-title">Built at the <em>intersection</em></h2>
-    <p class="section-desc reveal">AI-native tools for the crypto era. Privacy-first. Zero accounts. Open source where it matters.</p>
+    <header class="hero">
+      <div class="k">The trust standard for everyday life</div>
+      <h1>Security had standards for banks. <em>Now people get one.</em></h1>
+      <p class="lede">Audits and compliance protect institutions. Nothing equivalent protects a grandmother with a smartphone, a student with 1,000 songs, or a builder who reads policies for fun. Point Woebegone is that missing standard, written for humans: every product certified against it, or it does not ship.</p>
+      <div class="ctas">
+        <a class="btn" href="#who">See who is certified</a>
+        <a class="btn ghost" href="#name">Why Woebegone</a>
+      </div>
+      <p class="note">No crypto knowledge needed. No AI knowledge needed. If a product helps you, you belong here.</p>
+    </header>
 
-    <!-- WoeShield -->
-    <article class="product reveal">
-      <div class="product-header">
+    <section class="certbar" aria-label="Certification figures">
+      <div><div class="mark">✓</div><b>0</b><span>Records retained</span></div>
+      <div><div class="mark">✓</div><b>100%</b><span>Free to start</span></div>
+      <div><div class="mark">✓</div><b>68</b><span>Moods certified</span></div>
+      <div><div class="mark">✓</div><b>2 of 2</b><span>Products compliant</span></div>
+    </section>
+
+    <section class="block" id="who">
+      <div class="k">Certified for</div>
+      <h2 class="sec">One standard. Every walk of life.</h2>
+      <p class="sub">Different pains bring different people. The standard does not discriminate: listener, skeptic, builder, institution, same rules, same respect.</p>
+      <div class="lane-grid">
+        <div class="lane live">
+          <div class="who">Listeners · Certified live</div>
+          <h3>Moodwave</h3>
+          <p>A thousand unsorted tracks is a universal pain. Moodwave sorts any library into 68 sequenced playlists in minutes: free forever, nothing kept. The standard's first certificate.</p>
+          <div class="stamp">✓ Woebegone-verified</div><br />
+          <a class="more" href="https://moodwave.pointwoebegone.com" target="_blank" rel="noopener">Open Moodwave →</a>
+        </div>
+        <div class="lane">
+          <div class="who">Everyone with an inbox · In certification</div>
+          <h3>WoeShield</h3>
+          <p>Phishing and scam detection with reasons attached: paste anything suspicious, get a verdict in plain words. Opens when it passes certification, not before.</p>
+          <div class="stamp">◷ Certification pending</div><br />
+          <a class="more" href="https://woeshield.pointwoebegone.com/scan" target="_blank" rel="noopener">Try the scan →</a>
+        </div>
+        <div class="lane">
+          <div class="who">Builders · Open door</div>
+          <h3>Build on the standard</h3>
+          <p>The certification checklist is public: no retention, least privilege, plain policies. Pass it and the house stands behind you.</p>
+          <a class="more" href="mailto:pointwoebegone@gmail.com">Ask for the checklist →</a>
+        </div>
+        <div class="lane">
+          <div class="who">Institutions · In time</div>
+          <h3>Partners, eventually</h3>
+          <p>Networks, AI companies, bodies that need trust at scale. The door opens from our side, when community proof is undeniable. Community first, capital follows.</p>
+          <a class="more" href="#library">See the evidence →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="standard">
+      <div class="how">
+        <div class="k">How certification works</div>
+        <h2>Four gates. No quiet launches.</h2>
+        <p>Every product passes all four in public, or it stays in the lab. The gates only ever get stricter.</p>
+        <div class="steps">
+          <div><b>01 · Retain</b><p>Prove nothing is kept. Show the architecture, not the promise.</p></div>
+          <div><b>02 · Minimize</b><p>Smallest permission that works, each one explained in plain words.</p></div>
+          <div><b>03 · Publish</b><p>Policies readable at midnight. Limits posted. Behavior observable.</p></div>
+          <div><b>04 · Endure</b><p>Free to start, honest about cost. No harvesting ever fills a gap.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="name">
+      <div class="name-band">
         <div>
-          <h3 class="product-name"><em>Woe</em>Shield</h3>
-          <div class="product-byline">Threat detection &middot; Beta</div>
+          <div class="k">The name is the thesis</div>
+          <h2 class="sec">Woebegone is how the world feels. Point is where it ends.</h2>
+          <p><b>Woebegone</b> means worn down by sorrow. It is exactly how ordinary people feel about crypto and the modern internet: burnt by scams, confused by complexity, betrayed by promises.</p>
+          <p>A <b>point</b> is a place of change. A turning point. A coordinate where one thing ends and another begins.</p>
+          <p>Point Woebegone is that coordinate: the place the story of fear ends. AI already crossed into everyday life. Crypto is still stuck at the digital border, held back by missing trust and missing privacy. We are the third layer being built to carry it across, until one day people say <b>Woebegone-verified</b> the way they say Fed-backed.</p>
         </div>
-        <a class="product-link" href="https://woeshield.pointwoebegone.com/scan" target="_blank" rel="noopener">
-          Check it out
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-      </div>
-      <p class="product-desc">Paste any suspicious email, link, message, or transaction — crypto or otherwise. WoeShield analyses it with AI and tells you exactly what you're dealing with. Safe, suspicious, or dangerous. No guessing. No account needed. Built for individuals, businesses, and anyone who takes privacy seriously.</p>
-      <div class="product-grid" role="list">
-        <div class="product-cell" role="listitem"><div class="product-cell-label">Feature</div><div class="product-cell-name">Phishing &amp; Social Engineering Detection</div></div>
-        <div class="product-cell" role="listitem"><div class="product-cell-label">Feature</div><div class="product-cell-name">Crypto &amp; Financial Transaction Scanning</div></div>
-        <div class="product-cell" role="listitem"><div class="product-cell-label">Feature</div><div class="product-cell-name">Link, URL &amp; Domain Analysis</div></div>
-      </div>
-    </article>
-
-    <!-- Moodwave -->
-    <article class="product reveal" style="margin-top:20px">
-      <div class="product-header">
-        <div>
-          <h3 class="product-name">Mood<span style="color:var(--gold)">wave</span></h3>
-          <div class="product-byline">Music mood intelligence &middot; $4.99 one-time</div>
-        </div>
-        <a class="product-link" href="https://moodwave.pointwoebegone.com" target="_blank" rel="noopener">
-          Try it
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-      </div>
-      <p class="product-desc">Your music. Every mood. Instantly organized. Moodwave reads your Spotify library through audio feature analysis — energy, valence, tempo, danceability, acousticness — and classifies every track into 61 moods using music theory, not AI. Camelot Wheel harmonic matching. BPM flow optimization. Adaptive energy arcs. Zero data stored.</p>
-      <div class="product-grid" role="list">
-        <div class="product-cell" role="listitem"><div class="product-cell-label">Intelligence</div><div class="product-cell-name">Audio Feature Analysis</div></div>
-        <div class="product-cell" role="listitem"><div class="product-cell-label">Music Theory</div><div class="product-cell-name">Camelot Wheel + BPM Flow</div></div>
-        <div class="product-cell" role="listitem"><div class="product-cell-label">Privacy</div><div class="product-cell-name">Zero Data Stored</div></div>
-      </div>
-
-      <!-- How It Works -->
-      <div style="margin-top:40px; padding-top:32px; border-top:1px solid var(--border);">
-        <div style="font-size:10px; font-weight:400; letter-spacing:0.35em; color:var(--gray-300); text-transform:uppercase; margin-bottom:20px;">How it works</div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:24px;">
+        <div class="layers">
           <div>
-            <div style="font-size:11px; font-weight:500; letter-spacing:0.1em; color:var(--gold); margin-bottom:8px;">01 &mdash; Read</div>
-            <div style="font-size:14px; color:var(--gray-200); line-height:1.7;">Connects to your Spotify. Reads all your saved tracks and top artists across short, medium, and long-term listening windows.</div>
+            <div class="ln">Layer one · Crossed</div>
+            <h3>Artificial Intelligence</h3>
+            <p>Hospitals, courtrooms, classrooms. AI integrated into real life faster than any technology before it.</p>
           </div>
           <div>
-            <div style="font-size:11px; font-weight:500; letter-spacing:0.1em; color:var(--gold); margin-bottom:8px;">02 &mdash; Analyse</div>
-            <div style="font-size:14px; color:var(--gray-200); line-height:1.7;">Pulls audio features for every track — valence, energy, tempo, danceability, acousticness, instrumentalness. Enriches with Last.fm community tags and MusicBrainz metadata.</div>
+            <div class="ln">Layer two · Stalled</div>
+            <h3>Crypto rails</h3>
+            <p>Revolutionary technology, stuck at the digital border. Shallow adoption, constant trust failures.</p>
           </div>
           <div>
-            <div style="font-size:11px; font-weight:500; letter-spacing:0.1em; color:var(--gold); margin-bottom:8px;">03 &mdash; Classify</div>
-            <div style="font-size:14px; color:var(--gray-200); line-height:1.7;">Each track is scored against 61 mood profiles using weighted audio feature math. Confidence scores determine primary and cross-mood assignments.</div>
-          </div>
-          <div>
-            <div style="font-size:11px; font-weight:500; letter-spacing:0.1em; color:var(--gold); margin-bottom:8px;">04 &mdash; Arrange</div>
-            <div style="font-size:14px; color:var(--gray-200); line-height:1.7;">Playlists are shaped by adaptive energy arcs, BPM flow optimization, and Camelot Wheel harmonic matching. Every transition is smooth. Every opener hooks.</div>
+            <div class="ln">Layer three · Under construction</div>
+            <h3>Point Woebegone</h3>
+            <p>The adoption layer: verifiable trust, default privacy, bridges into physical life. This site is its front door.</p>
           </div>
         </div>
       </div>
-    </article>
-  </section>
+    </section>
 
-  <!-- QUOTE -->
-  <section class="quote-section" aria-label="Mission statement">
-    <div class="reveal">
-      <blockquote class="quote-text">"AI is everywhere. Crypto is transforming everything. The missing piece is <em>trust</em>. The missing piece is <em>privacy</em>. The missing piece is <em>proof</em>. <em>That's what we're here to build.</em>"</blockquote>
-      <div class="quote-attr">Point Woebegone &middot; 2026</div>
-    </div>
-  </section>
+    <section class="block">
+      <div class="k">The long view</div>
+      <h2 class="sec">Measured in generations.</h2>
+      <p class="sub">Not bull markets. Not funding rounds. The milestones below are the ones we answer for.</p>
+      <div class="miles">
+        <div><b>3 years</b><p>A recognized name in trust circles. One live product with a real community. That product is Moodwave, and the community is you.</p></div>
+        <div><b>7 years</b><p>Partnered with a major network or AI company. Referenced wherever crypto adoption is discussed.</p></div>
+        <div><b>15+ years</b><p>Foundational. The way money talk references central banks, trust talk references Woebegone. Then: wherever value moves next.</p></div>
+      </div>
+    </section>
 
-  <!-- FAQ -->
-  <section class="faq-section" id="faq" aria-labelledby="faq-title">
-    <div class="section-label reveal">Questions</div>
-    <h2 class="section-title reveal" id="faq-title">Frequently asked</h2>
+    <section class="block" id="library">
+      <div class="k">Standards library · Field Notes</div>
+      <h2 class="sec">Read the reasoning.</h2>
+      <p class="sub">Essays, engineering postmortems, and lore. Citizens are encouraged to read the record before trusting the seal.</p>
+      <div class="lib">
+        <a href="/blog/posts/moodwave-story.html">From Radar Dots to Audio Waves <small>Founding thesis</small></a>
+        <a href="/blog/posts/spotify-audio-features-alternative.html">Spotify Killed Its Audio Features API. Heres What Replaced It. <small>Audit report</small></a>
+        <a href="/blog/posts/security-research.html">What the Bugs Taught Me <small>Postmortem</small></a>
+        <a href="/blog/posts/name-origin.html">The Story Behind the Name <small>Lore</small></a>
+        <a href="/blog/posts/lifetime-product.html">The $4.99 Bet <small>Business · historical pricing</small></a>
+        <a href="/blog/posts/attention-economy.html">The Ordinary Art of Noticing <small>Essay</small></a>
+      </div>
+    </section>
 
-    <div class="faq-item reveal">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is Point Woebegone?</div>
-      <div class="faq-a">Point Woebegone builds privacy, security, and trust tools for the AI, crypto, and tech era. Our products include WoeShield (AI-powered threat detection for individuals and businesses) and Moodwave (music mood intelligence — audio feature analysis, Camelot Wheel, BPM flow optimization).</div>
-    </div>
-    <div class="faq-item reveal">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is WoeShield?</div>
-      <div class="faq-a">WoeShield is an AI-powered threat detection tool. Paste any suspicious email, link, message, crypto transaction, or financial interaction and WoeShield analyses it to tell you if it is safe, suspicious, or dangerous. Works for individuals, businesses, and anyone navigating the AI, crypto, and tech landscape. No account needed.</div>
-    </div>
-    <div class="faq-item reveal">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is Moodwave?</div>
-      <div class="faq-a">Moodwave is a music mood intelligence tool. It reads your Spotify library, analyses every track's audio features — energy, valence, tempo, danceability, acousticness — and classifies them into 61 moods using music theory. Camelot Wheel harmonic matching, BPM flow optimization, adaptive energy arcs. $4.99 one-time. Zero data stored.</div>
-    </div>
-    <div class="faq-item reveal">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does Point Woebegone handle privacy?</div>
-      <div class="faq-a">Privacy by design. Both WoeShield and Moodwave process data in real-time and never store it on our servers. No accounts required for WoeShield. No tracking. No data harvesting.</div>
-    </div>
-    <div class="faq-item reveal">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does Point Woebegone store my data?</div>
-      <div class="faq-a">No. Both WoeShield and Moodwave are built with zero data storage. Your data is processed in real-time and never stored on our servers. Privacy by design.</div>
-    </div>
-    <div class="faq-item reveal">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does Moodwave cost?</div>
-      <div class="faq-a">Moodwave costs $4.99 one-time. No subscription. No recurring fees. Limited to 200 lifetime spots. Pay once and use it forever.</div>
-    </div>
-    <div class="faq-item reveal">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is decentralized trust?</div>
-      <div class="faq-a">Decentralized trust means building systems where trust is verifiable, auditable, and earned rather than assumed. Point Woebegone builds tools that make this possible in the crypto and privacy space.</div>
-    </div>
-  </section>
+    <section class="block">
+      <div class="contact">
+        <h2>Hold us to it. <em>Write.</em></h2>
+        <p>Questions, doubts, demos, partnerships, corrections. Every message is read by the founder. Drift gets answered, not hidden.</p>
+        <a class="btn-w" href="mailto:pointwoebegone@gmail.com">pointwoebegone@gmail.com</a>
+        <div class="alt">Prefer public? <a href="https://x.com/pointwoebegone" target="_blank" rel="noopener">@pointwoebegone on X</a></div>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
-    <div>
-      <div class="footer-brand">Point <span>Woebegone</span></div>
-      <div class="footer-copy">&copy; 2026 Point Woebegone. All rights reserved.</div>
-    </div>
-    <div class="footer-links">
-      <a href="https://x.com/pointwoebegone" target="_blank" rel="noopener">X</a>
-      <a href="/blog">Field Notes</a>
-      <a href="https://moodwave.pointwoebegone.com" target="_blank" rel="noopener">Moodwave</a>
-    </div>
-  </footer>
-
-  <script>
-    // Reveal on scroll
-    const obs = new IntersectionObserver(es => {
-      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-    // Background
-    const c = document.getElementById('bg');
-    const ctx = c.getContext('2d');
-    let W, H;
-    function resize() { W = c.width = innerWidth; H = c.height = innerHeight; }
-
-    // Particles
-    const particles = [];
-    function mulberry32(s) {
-      return function() {
-        s |= 0; s = s + 0x6D2B79F5 | 0;
-        var t = Math.imul(s ^ s >>> 15, 1 | s);
-        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-        return ((t ^ t >>> 14) >>> 0) / 4294967296;
-      }
-    }
-    const rng = mulberry32(42);
-    for (let i = 0; i < 100; i++) {
-      particles.push({
-        x: rng() * 3000, y: rng() * 3000,
-        r: rng() * 1.2 + 0.2,
-        a: rng() * 0.25 + 0.03,
-        dx: (rng() - 0.5) * 0.12,
-        dy: (rng() - 0.5) * 0.08,
-      });
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-      const cx = W * 0.5, cy = H * 0.4;
-      // Gradient
-      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.55);
-      g.addColorStop(0, 'rgba(201,168,76,0.04)');
-      g.addColorStop(0.5, 'rgba(201,168,76,0.015)');
-      g.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, W, H);
-      // Rings
-      const t = performance.now() * 0.0003;
-      for (let i = 0; i < 6; i++) {
-        const rx = 80 + i * 90 + Math.sin(t + i) * 18;
-        const ry = 70 + i * 75 + Math.cos(t + i) * 14;
-        const alpha = Math.max(0.04 - i * 0.005, 0.008);
-        ctx.beginPath();
-        ctx.ellipse(cx, cy, rx, ry, t * 0.15 + i * 0.35, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(201,168,76,${alpha})`;
-        ctx.lineWidth = 0.7;
-        ctx.stroke();
-      }
-      // Particles
-      particles.forEach(p => {
-        p.x += p.dx; p.y += p.dy;
-        if (p.x < -10) p.x = W + 10;
-        if (p.x > W + 10) p.x = -10;
-        if (p.y < -10) p.y = H + 10;
-        if (p.y > H + 10) p.y = -10;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(201,168,76,${p.a})`;
-        ctx.fill();
-      });
-      requestAnimationFrame(draw);
-    }
-    addEventListener('resize', resize);
-    resize();
-    draw();
-  </script>
+    <footer>
+      <div>© 2026 Point Woebegone · Founded March 2026</div>
+      <div><a href="https://x.com/pointwoebegone" target="_blank" rel="noopener">X / Twitter</a> · <a href="/blog">Field Notes</a> · <a href="/sitemap.xml">Sitemap</a></div>
+    </footer>
+  </div>
 </body>
 </html>
