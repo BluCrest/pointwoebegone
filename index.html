@@ -315,9 +315,9 @@
       --ink: #0c1116;
       --ink-soft: #3d4750;
       --ink-faint: #6d7880;
-      --cyan: #00a9ce;
-      --cyan-deep: #00748f;
-      --cyan-wash: #e6f7fb;
+      --gold: #B8A44A;
+      --gold-deep: #6E632A;
+      --gold-wash: #F6F1D8;
       --line: #e2e8ec;
       --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --serif: 'Playfair Display', Georgia, serif;
@@ -333,7 +333,7 @@
       overflow-x: hidden;
     }
 
-    ::selection { background: var(--cyan); color: #fff; }
+    ::selection { background: var(--gold); color: #fff; }
 
     /* Turning compass backdrop: top-right, medium visible, slow */
     .compass {
@@ -363,7 +363,7 @@
       position: relative;
       z-index: 1;
     }
-    .topband b { color: var(--cyan); }
+    .topband b { color: var(--gold); }
 
     nav {
       display: flex;
@@ -377,14 +377,14 @@
     .brand .t { font-weight: 800; font-size: 18px; line-height: 1.1; }
     .brand .t small { display: block; font-size: 10px; font-weight: 400; letter-spacing: 0.3em; color: var(--ink-faint); }
     nav .links a { color: var(--ink-soft); text-decoration: none; margin-left: 26px; font-size: 14px; font-weight: 600; }
-    nav .links a:hover { color: var(--cyan-deep); }
+    nav .links a:hover { color: var(--gold-deep); }
     nav .links a.cta {
       background: var(--ink);
       color: #fff;
       padding: 12px 26px;
       border-radius: 8px;
     }
-    nav .links a.cta:hover { background: var(--cyan-deep); }
+    nav .links a.cta:hover { background: var(--gold-deep); }
 
     .hero { padding: 84px 0 60px; max-width: 860px; }
     .hero .k {
@@ -392,7 +392,7 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--cyan-deep);
+      color: var(--gold-deep);
       margin-bottom: 20px;
     }
     h1 {
@@ -401,7 +401,7 @@
       font-weight: 800;
       letter-spacing: -0.02em;
     }
-    h1 em { font-family: var(--serif); font-weight: 400; color: var(--cyan-deep); }
+    h1 em { font-family: var(--serif); font-weight: 400; color: var(--gold-deep); }
     .hero p.lede { margin-top: 24px; font-size: 1.18rem; color: var(--ink-soft); max-width: 62ch; }
     .hero .ctas { margin-top: 34px; display: flex; gap: 16px; flex-wrap: wrap; }
     .btn {
@@ -414,9 +414,9 @@
       border-radius: 10px;
       font-size: 15px;
     }
-    .btn:hover { background: var(--cyan-deep); }
+    .btn:hover { background: var(--gold-deep); }
     .btn.ghost { background: #fff; color: var(--ink); border: 1.5px solid var(--ink); }
-    .btn.ghost:hover { border-color: var(--cyan-deep); color: var(--cyan-deep); background: var(--cyan-wash); }
+    .btn.ghost:hover { border-color: var(--gold-deep); color: var(--gold-deep); background: var(--gold-wash); }
     .hero .note { margin-top: 22px; font-size: 14px; color: var(--ink-faint); }
 
     .certbar {
@@ -430,7 +430,7 @@
     }
     .certbar div { padding: 28px 20px; text-align: center; border-left: 1px solid var(--line); }
     .certbar div:first-child { border-left: none; }
-    .certbar .mark { font-size: 24px; color: var(--cyan-deep); font-weight: 800; }
+    .certbar .mark { font-size: 24px; color: var(--gold-deep); font-weight: 800; }
     .certbar b { display: block; font-size: 1.6rem; margin-top: 6px; }
     .certbar span { font-size: 12px; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; }
 
@@ -440,7 +440,7 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--cyan-deep);
+      color: var(--gold-deep);
       margin-bottom: 8px;
     }
     h2.sec { font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.01em; margin-bottom: 12px; }
@@ -454,7 +454,7 @@
       font-weight: 800;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--cyan-deep);
+      color: var(--gold-deep);
       margin-bottom: 10px;
     }
     .lane h3 { font-size: 1.5rem; margin-bottom: 8px; }
@@ -465,16 +465,16 @@
       font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      border: 1px solid var(--cyan-deep);
-      color: var(--cyan-deep);
+      border: 1px solid var(--gold-deep);
+      color: var(--gold-deep);
       border-radius: 4px;
       padding: 5px 12px;
       margin-bottom: 18px;
     }
     .lane a.more { font-weight: 700; color: var(--ink); }
-    .lane a.more:hover { color: var(--cyan-deep); }
+    .lane a.more:hover { color: var(--gold-deep); }
 
-    .how { background: var(--cyan-wash); border-radius: 18px; padding: 56px 48px; }
+    .how { background: var(--gold-wash); border-radius: 18px; padding: 56px 48px; }
     .how h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 8px; }
     .how > p { color: var(--ink-soft); margin-bottom: 30px; max-width: 64ch; }
     .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -483,7 +483,7 @@
       font-size: 13px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--cyan-deep);
+      color: var(--gold-deep);
       margin-bottom: 8px;
     }
     .steps div p { font-size: 0.93rem; color: var(--ink-soft); }
@@ -500,16 +500,16 @@
       font-weight: 800;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--cyan-deep);
+      color: var(--gold-deep);
       margin-bottom: 4px;
     }
-    .layers div:last-child .ln { color: var(--cyan); }
+    .layers div:last-child .ln { color: var(--gold); }
     .layers h3 { font-size: 1.2rem; margin-bottom: 4px; }
     .layers p { font-size: 0.92rem; color: var(--ink-soft); }
     .layers div:last-child p { color: #c3ccd2; }
 
     .miles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .miles div { border-top: 3px solid var(--cyan); padding-top: 18px; }
+    .miles div { border-top: 3px solid var(--gold); padding-top: 18px; }
     .miles b { font-size: 1.1rem; display: block; margin-bottom: 6px; }
     .miles p { font-size: 0.93rem; color: var(--ink-soft); }
 
@@ -525,7 +525,7 @@
       font-size: 1.1rem;
     }
     .lib a:first-of-type { border-top: 1px solid var(--line); margin-top: 24px; }
-    .lib a:hover { color: var(--cyan-deep); }
+    .lib a:hover { color: var(--gold-deep); }
     .lib small { font-weight: 400; font-size: 12px; color: var(--ink-faint); white-space: nowrap; }
 
     .contact {
@@ -536,9 +536,9 @@
       text-align: center;
     }
     .contact h2 { font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 800; margin-bottom: 12px; }
-    .contact h2 em { font-family: var(--serif); font-weight: 400; color: var(--cyan); }
+    .contact h2 em { font-family: var(--serif); font-weight: 400; color: var(--gold); }
     .contact p { color: #aeb8c0; max-width: 56ch; margin: 0 auto 30px; }
-    .contact a.btn-w { display: inline-block; background: var(--cyan); color: #062b33; font-weight: 800; text-decoration: none; padding: 15px 40px; border-radius: 10px; }
+    .contact a.btn-w { display: inline-block; background: var(--gold); color: #2E2A0E; font-weight: 800; text-decoration: none; padding: 15px 40px; border-radius: 10px; }
     .contact a.btn-w:hover { background: #fff; }
     .contact .alt { margin-top: 20px; font-size: 14px; color: #aeb8c0; }
     .contact .alt a { color: #fff; }
@@ -570,7 +570,7 @@
 
   <!-- Turning compass backdrop -->
   <svg class="compass" viewBox="0 0 200 200" aria-hidden="true">
-    <g fill="none" stroke="#00748f" stroke-width="0.8">
+    <g fill="none" stroke="#6E632A" stroke-width="0.8">
       <circle cx="100" cy="100" r="96" />
       <circle cx="100" cy="100" r="72" />
       <circle cx="100" cy="100" r="46" />
@@ -584,13 +584,13 @@
         <line x1="32" y1="168" x2="39" y2="161" />
         <line x1="161" y1="161" x2="168" y2="168" />
       </g>
-      <polygon points="100,28 106,100 100,172 94,100" fill="#00748f" fill-opacity="0.35" stroke="none" />
-      <polygon points="28,100 100,94 172,100 100,106" fill="#00748f" fill-opacity="0.35" stroke="none" />
-      <polygon points="100,54 104,100 100,146 96,100" fill="#00748f" fill-opacity="0.55" stroke="none" />
-      <polygon points="54,100 100,96 146,100 100,104" fill="#00748f" fill-opacity="0.55" stroke="none" />
-      <circle cx="100" cy="100" r="7" fill="#00748f" fill-opacity="0.6" stroke="none" />
+      <polygon points="100,28 106,100 100,172 94,100" fill="#6E632A" fill-opacity="0.35" stroke="none" />
+      <polygon points="28,100 100,94 172,100 100,106" fill="#6E632A" fill-opacity="0.35" stroke="none" />
+      <polygon points="100,54 104,100 100,146 96,100" fill="#6E632A" fill-opacity="0.55" stroke="none" />
+      <polygon points="54,100 100,96 146,100 100,104" fill="#6E632A" fill-opacity="0.55" stroke="none" />
+      <circle cx="100" cy="100" r="7" fill="#6E632A" fill-opacity="0.6" stroke="none" />
     </g>
-    <g font-family="Georgia, serif" font-size="13" fill="#00748f" text-anchor="middle">
+    <g font-family="Georgia, serif" font-size="13" fill="#6E632A" text-anchor="middle">
       <text x="100" y="26">N</text>
       <text x="100" y="182">S</text>
       <text x="20" y="104">W</text>
@@ -598,7 +598,7 @@
     </g>
   </svg>
 
-  <div class="topband">Woebegone-verified: <b>2 products held to the standard</b> · 0 exceptions granted</div>
+  <div class="topband">Held to the standard: <b>2 products · 0 exceptions granted</b></div>
 
   <div class="wrap">
     <nav>
@@ -618,60 +618,48 @@
     <header class="hero">
       <div class="k">The trust standard for everyday life</div>
       <h1>Security had standards for banks. <em>Now people get one.</em></h1>
-      <p class="lede">Audits and compliance protect institutions. Nothing equivalent protects a grandmother with a smartphone, a student with 1,000 songs, or a builder who reads policies for fun. Point Woebegone is that missing standard, written for humans: every product certified against it, or it does not ship.</p>
+      <p class="lede">Audits and compliance protect institutions. Nothing equivalent protects a grandmother with a smartphone, a student with 1,000 songs, or a builder who reads policies for fun. Point Woebegone is that missing standard, written for humans: every product held to it, or it does not ship.</p>
       <div class="ctas">
-        <a class="btn" href="#who">See who is certified</a>
+        <a class="btn" href="#who">See who it serves</a>
         <a class="btn ghost" href="#name">Why Woebegone</a>
       </div>
       <p class="note">No crypto knowledge needed. No AI knowledge needed. If a product helps you, you belong here.</p>
     </header>
 
-    <section class="certbar" aria-label="Certification figures">
+    <section class="certbar" aria-label="Standard figures">
       <div><div class="mark">✓</div><b>0</b><span>Records retained</span></div>
       <div><div class="mark">✓</div><b>100%</b><span>Free to start</span></div>
-      <div><div class="mark">✓</div><b>68</b><span>Moods certified</span></div>
-      <div><div class="mark">✓</div><b>2 of 2</b><span>Products compliant</span></div>
+      <div><div class="mark">✓</div><b>3</b><span>Pillars held</span></div>
+      <div><div class="mark">✓</div><b>2 of 2</b><span>Products held</span></div>
     </section>
 
     <section class="block" id="who">
-      <div class="k">Certified for</div>
+      <div class="k">Who it serves</div>
       <h2 class="sec">One standard. Every walk of life.</h2>
-      <p class="sub">Different pains bring different people. The standard does not discriminate: listener, skeptic, builder, institution, same rules, same respect.</p>
+      <p class="sub">Different pains bring different people. Same rules, same respect: if it helps you, it holds for you.</p>
       <div class="lane-grid">
         <div class="lane live">
-          <div class="who">Listeners · Certified live</div>
+          <div class="who">Listeners · Live now</div>
           <h3>Moodwave</h3>
-          <p>A thousand unsorted tracks is a universal pain. Moodwave sorts any library into 68 sequenced playlists in minutes: free forever, nothing kept. The standard's first certificate.</p>
-          <div class="stamp">✓ Woebegone-verified</div><br />
+          <p>A thousand unsorted tracks is a universal pain. Moodwave sorts any library into 68 sequenced playlists in minutes: free forever, nothing kept. The standard's first proof.</p>
+          <div class="stamp">✓ Held to the standard</div><br />
           <a class="more" href="https://moodwave.pointwoebegone.com" target="_blank" rel="noopener">Open Moodwave →</a>
         </div>
         <div class="lane">
-          <div class="who">Everyone with an inbox · In certification</div>
+          <div class="who">Everyone with an inbox · Earning it</div>
           <h3>WoeShield</h3>
-          <p>Phishing and scam detection with reasons attached: paste anything suspicious, get a verdict in plain words. Opens when it passes certification, not before.</p>
-          <div class="stamp">◷ Certification pending</div><br />
+          <p>Phishing and scam detection with reasons attached: paste anything suspicious, get a verdict in plain words. Opens when it earns it, not before.</p>
+          <div class="stamp">◷ Earning the standard</div><br />
           <a class="more" href="https://woeshield.pointwoebegone.com/scan" target="_blank" rel="noopener">Try the scan →</a>
-        </div>
-        <div class="lane">
-          <div class="who">Builders · Open door</div>
-          <h3>Build on the standard</h3>
-          <p>The certification checklist is public: no retention, least privilege, plain policies. Pass it and the house stands behind you.</p>
-          <a class="more" href="mailto:pointwoebegone@gmail.com">Ask for the checklist →</a>
-        </div>
-        <div class="lane">
-          <div class="who">Institutions · In time</div>
-          <h3>Partners, eventually</h3>
-          <p>Networks, AI companies, bodies that need trust at scale. The door opens from our side, when community proof is undeniable. Community first, capital follows.</p>
-          <a class="more" href="#library">See the evidence →</a>
         </div>
       </div>
     </section>
 
     <section class="block" id="standard">
       <div class="how">
-        <div class="k">How certification works</div>
+        <div class="k">How the standard works</div>
         <h2>Four gates. No quiet launches.</h2>
-        <p>Every product passes all four in public, or it stays in the lab. The gates only ever get stricter.</p>
+        <p>Every product passes all four, or it stays in the lab. The gates only ever get stricter.</p>
         <div class="steps">
           <div><b>01 · Retain</b><p>Prove nothing is kept. Show the architecture, not the promise.</p></div>
           <div><b>02 · Minimize</b><p>Smallest permission that works, each one explained in plain words.</p></div>
@@ -686,25 +674,25 @@
         <div>
           <div class="k">The name is the thesis</div>
           <h2 class="sec">Woebegone is how the world feels. Point is where it ends.</h2>
-          <p><b>Woebegone</b> means worn down by sorrow. It is exactly how ordinary people feel about crypto and the modern internet: burnt by scams, confused by complexity, betrayed by promises.</p>
+          <p><b>Woebegone</b> means worn down by sorrow. It is exactly how ordinary people feel about the modern internet: burnt by scams, confused by complexity, betrayed by promises.</p>
           <p>A <b>point</b> is a place of change. A turning point. A coordinate where one thing ends and another begins.</p>
-          <p>Point Woebegone is that coordinate: the place the story of fear ends. AI already crossed into everyday life. Crypto is still stuck at the digital border, held back by missing trust and missing privacy. We are the third layer being built to carry it across, until one day people say <b>Woebegone-verified</b> the way they say Fed-backed.</p>
+          <p>Point Woebegone is that coordinate: the place the story of fear ends. AI is everywhere. Crypto is changing everything. The missing piece is <b>trust</b> you can check, <b>privacy</b> you do not have to beg for, and <b>proof</b> you do not need a degree to read. That is what we are here to build.</p>
         </div>
         <div class="layers">
           <div>
-            <div class="ln">Layer one · Crossed</div>
-            <h3>Artificial Intelligence</h3>
-            <p>Hospitals, courtrooms, classrooms. AI integrated into real life faster than any technology before it.</p>
+            <div class="ln">What we hold · 01</div>
+            <h3>Privacy</h3>
+            <p>Your data is yours. Tools that give it back, without asking you to trade safety for it.</p>
           </div>
           <div>
-            <div class="ln">Layer two · Stalled</div>
-            <h3>Crypto rails</h3>
-            <p>Revolutionary technology, stuck at the digital border. Shallow adoption, constant trust failures.</p>
+            <div class="ln">What we hold · 02</div>
+            <h3>Security</h3>
+            <p>Threat intelligence built for the real world. Proactive, not reactive. Plain words, not jargon.</p>
           </div>
           <div>
-            <div class="ln">Layer three · Under construction</div>
-            <h3>Point Woebegone</h3>
-            <p>The adoption layer: verifiable trust, default privacy, bridges into physical life. This site is its front door.</p>
+            <div class="ln">What we hold · 03</div>
+            <h3>Trust</h3>
+            <p>We do not ask you to trust us. We build so you can check. Verifiable, auditable, earned.</p>
           </div>
         </div>
       </div>
@@ -712,12 +700,12 @@
 
     <section class="block">
       <div class="k">The long view</div>
-      <h2 class="sec">Measured in generations.</h2>
-      <p class="sub">Not bull markets. Not funding rounds. The milestones below are the ones we answer for.</p>
+      <h2 class="sec">Measured by what we keep.</h2>
+      <p class="sub">Not hype. Not funding rounds. The commitments below are the ones we answer for.</p>
       <div class="miles">
-        <div><b>3 years</b><p>A recognized name in trust circles. One live product with a real community. That product is Moodwave, and the community is you.</p></div>
-        <div><b>7 years</b><p>Partnered with a major network or AI company. Referenced wherever crypto adoption is discussed.</p></div>
-        <div><b>15+ years</b><p>Foundational. The way money talk references central banks, trust talk references Woebegone. Then: wherever value moves next.</p></div>
+        <div><b>Real tools</b><p>Things you can open today. Moodwave sorts your music. WoeShield reads the suspicious message. No slides, no waitlist theater.</p></div>
+        <div><b>Plain words</b><p>Policies readable at midnight. Limits posted. Every verdict comes with reasons, not magic.</p></div>
+        <div><b>Nothing kept</b><p>Zero retention is the whole bet. If we cannot prove we kept nothing, we do not deserve the name.</p></div>
       </div>
     </section>
 
@@ -726,11 +714,9 @@
       <h2 class="sec">Read the reasoning.</h2>
       <p class="sub">Essays, engineering postmortems, and lore. Citizens are encouraged to read the record before trusting the seal.</p>
       <div class="lib">
-        <a href="/blog/posts/moodwave-story.html">From Radar Dots to Audio Waves <small>Founding thesis</small></a>
         <a href="/blog/posts/spotify-audio-features-alternative.html">Spotify Killed Its Audio Features API. Heres What Replaced It. <small>Audit report</small></a>
         <a href="/blog/posts/security-research.html">What the Bugs Taught Me <small>Postmortem</small></a>
         <a href="/blog/posts/name-origin.html">The Story Behind the Name <small>Lore</small></a>
-        <a href="/blog/posts/lifetime-product.html">The $4.99 Bet <small>Business · historical pricing</small></a>
         <a href="/blog/posts/attention-economy.html">The Ordinary Art of Noticing <small>Essay</small></a>
       </div>
     </section>
@@ -746,7 +732,7 @@
 
     <footer>
       <div>© 2026 Point Woebegone · Founded March 2026</div>
-      <div><a href="https://x.com/pointwoebegone" target="_blank" rel="noopener">X / Twitter</a> · <a href="/blog">Field Notes</a> · <a href="/sitemap.xml">Sitemap</a></div>
+      <div><a href="https://x.com/pointwoebegone" target="_blank" rel="noopener">X / Twitter</a> · <a href="/blog">Field Notes</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/sitemap.xml">Sitemap</a></div>
     </footer>
   </div>
 </body>
